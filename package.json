@@ -1,0 +1,39 @@
+{
+  "name": "untitled-game-of-microgames",
+  "version": "1.0.0",
+  "description": "The <Insert the game's great and creative name here> is a microgame mashup where the player has around 5-10 seconds to finish the objective of each microgame before moving on to the next one (similar to WarioWare). One of the main attractive features of microgame mashup is that the player tends to be overloaded with information as the game proceeds. However, at the same time, each microgame is inituitive and has a player-friendly game design so the player does not need a detailed instruction on how to complete the objective. It will be natural for the players to know what to do.",
+  "main": "index.js",
+  "browserslist": [
+    "defaults"
+  ],
+  
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "watch": "webpack --watch --mode=development",
+    "build": "webpack --mode=production"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kennytram/Untitled-Game-of-Microgames.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kennytram/Untitled-Game-of-Microgames/issues"
+  },
+  "homepage": "https://github.com/kennytram/Untitled-Game-of-Microgames#readme",
+  "dependencies": {
+    "@babel/core": "^7.20.12",
+    "@babel/preset-env": "^7.20.2",
+    "babel-loader": "^9.1.2",
+    "core-js": "^3.27.2",
+    "css-loader": "^6.7.3",
+    "mini-css-extract-plugin": "^2.7.2",
+    "regenerator-runtime": "^0.13.11",
+    "sass": "^1.58.0",
+    "sass-loader": "^13.2.0",
+    "webpack": "^5.75.0",
+    "webpack-cli": "^5.0.1"
+  }
+}
