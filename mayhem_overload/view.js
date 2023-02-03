@@ -6,7 +6,7 @@ class View {
     constructor(game, ctx) {
         this.game = game;
         this.ctx = ctx;
-        
+        this.game.setCtx(ctx);
     }
 
     animate() {

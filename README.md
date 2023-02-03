@@ -1,16 +1,16 @@
-# Untitled-Game-of-Microgames
+# Mayhem Overload
 #### A game that is overloaded with mayhem <img src="https://media.tenor.com/Ivb2PnLZzsUAAAAM/fire-elmo.gif" width=60 height=40>
 
 ## Background
 
-The <Insert the game's great and creative name here> is a microgame mashup where the player has around 5-10 seconds to finish the objective of each microgame before moving on to the next one (similar to WarioWare). One of the main attractive features of microgame mashup is that the player tends to be overloaded with information as the game proceeds. However, at the same time, each microgame is inituitive and has a player-friendly game design so the player does not need a detailed instruction on how to complete the objective. It will be natural for the players to know what to do. 
+Mayhem Overload is a microgame mashup where the player has around 5-10 seconds to finish the objective of each microgame before moving on to the next one (similar to WarioWare). One of the main attractive features of microgame mashup is that the player tends to be overloaded with information as the game proceeds. However, at the same time, each microgame is inituitive and has a player-friendly game design so the player does not need a detailed instruction on how to complete the objective. It will be natural for the players to know what to do. 
 
 ## Functionality & MVPs
-In { Insert the game's great and creative name here }, users will be able to:
+In Mayhem Overload, users will be able to:
 
 #### Core Features
 - play different microgames intuitively within a strict time constraint
-- be able to keep track of their score { feature }
+- be able to keep track of their score
 - suffer with information overload
 - have fun!
 
