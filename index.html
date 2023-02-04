@@ -11,8 +11,33 @@
   </head>
 
   <body>
-    <h1>Mayhem Overload</h1>
-    <canvas id="game-canvas"></canvas>
+    <div class="front">
+      <text id="gameTitle">Mayhem Overload</text>
+      <button id="playButton"></button>
+    </div>
+
+
+    <div class = "back">
+      <canvas id="titleBG"></canvas>
+      <!-- <canvas id= "gameBG" class="game"></canvas> -->
+      <!-- <canvas id= "loadBG" class="load"></canvas> -->
+    </div>
+      <!-- Game Canvases -->
+      <div id = "gameScreen" class="game">
+        <!-- <canvas id= "gameBG" class="game"></canvas> -->
+        <canvas id= "gameStage" class="game"></canvas>
+        <canvas id= "characters" class="game"></canvas>
+        <canvas id= "obstacles" class="game"></canvas>
+        <canvas id= "timer" class="game"></canvas>
+        <canvas id= "projectiles" class="game"></canvas>
+      </div>
+      <!-- Loading Screen Canvases -->
+      <div id = "loadScreen" class="load">
+        <canvas id= "loadBG" class="load"></canvas>
+        <canvas id= "animated" class="load"></canvas>
+        <canvas id= "score" class="load"></canvas>
+      </div> 
+    <!-- </div> -->
   </body>
 
 </html>

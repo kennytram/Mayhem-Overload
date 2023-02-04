@@ -1,12 +1,16 @@
 import User from "./user";
+import TitleScreen from "./titlescreen";
+import LoadScreen from "./loadscreen";
+import GameScreen from "./gamescreen";
+
 
 class Game {
 
     constructor() {
         this.user = new User();
-        // this.titleScreen = new TitleScreen();
-        // this.loadScreen = new LoadScreen();
-        // this.gameScreen = new GameScreen();
+        this.titleScreen = new TitleScreen();
+        this.loadScreen = new LoadScreen();
+        this.gameScreen = new GameScreen();
         this.microgames = [];
         this.addDefaultMicrogames();
     }
@@ -31,15 +35,15 @@ class Game {
     animate(ctx) {
         // if (this.titleScreening.running === true || this.loadingScreen.running === true) this.preAnimate();
 
-        // if (this.titleScreen.running === true) this.titleScreen.animate(ctx);
-        // else if (this.gameScreen.running === true) this.gameScreen.animate(ctx);
-        // else this.loadScreen.animate(ctx);
+        // if (this.titleScreen.running === true) this.titleScreen.animate();
+        // else if (this.gameScreen.running === true) this.gameScreen.animate();
+        // else this.loadScreen.animate();
     }
 
     setCtx(ctx) {
-        // this.titleScreen.ctx = ctx;
-        // this.loadScreen.ctx = ctx;
-        // this.gameScreen.ctx = ctx;
+        this.titleScreen.ctx = ctx;
+        this.loadScreen.ctx = ctx;
+        this.gameScreen.ctx = ctx;
     }
 
 }

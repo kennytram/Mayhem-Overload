@@ -17,3 +17,5 @@ class User {
         if(this.highScore < this.currentScore) this.highScore = this.currentScore;
     }
 }
+
+export default User;
