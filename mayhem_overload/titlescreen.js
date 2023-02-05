@@ -8,17 +8,9 @@ class TitleScreen extends Screen {
 
     constructor() {
         super();
-        this.title = "Mayhem Overload";
-    }
-
-    createButton() {
-        const button = new Path2D();
-        let width = this.ctx.canvas.width;
-        let height = this.ctx.canvas.height;
-        let buttonWidth = Math.floor(width/2);
-        let buttonHeight = Math.floor(height/2);
-
-        button.roundRect()
+        this.titleCtx = document.querySelector('#gameTitle').getContext('2d')
+        this.playButtonCtx = document.querySelector('#playButton').getContext('2d');
+        this.backgroundCtx = document.querySelector('#titleBG').getContext('2d');
     }
 
     animate() {
