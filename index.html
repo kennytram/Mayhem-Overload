@@ -6,20 +6,42 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <link rel="stylesheet" href="./dist/main.css" />
+    <link rel="icon" type="image/x-icon" href="./src/favicon.png">
     <script src="./dist/main.js" defer></script>
+    <script src="./src/scripts/keymaster.js"></script>
     <title>Mayhem Overload</title>
   </head>
 
   <body>
-    <div class="front">
-      <!-- <text id="gameTitle">Mayhem Overload</text>
-      <button id="playButton"></button> -->
-        <canvas id= "gameStage" class="game"></canvas>
-        <canvas id= "characters" class="game"></canvas>
-        <canvas id= "obstacles" class="game"></canvas>
-        <canvas id= "timer" class="game"></canvas>
-        <canvas id= "projectiles" class="game"></canvas>
+    <div id="score"><h2></h2></div>
+    <div id="game_container">
+      <div id="top_title_box">
+        <div id="empty_top_div">
+        </div>
+        <div id="title"><p>Mayhem Overload</p></div>
+        <div id="icons_div">
+          <div id="empty_icon_div"></div>
+          <a href = "https://github.com/kennytram"><img src="/src/title/github.png" ></img></a>
+        </div>
+      </div>
+      <div id="bottom_title_box">
+        <div id="controls"><p>Controls</p></div>
+        <br>
+        <div id="keyboard">
+          <img src="/src/title/keyboard_mute.png" id = "keyboard_img"></img>
+        </div>
+        <div id="start">
+          <button id="startButton">
+          </button>
+        </div>
+      </div>
     </div>
+    <div id = "empty_container"></div>
+    <div id = 'background_container'>
+      <div id ="hello_world"><p>... Hello World ...</p></div>
+    </div>
+    <!--<canvas id= "canvas" width="500" height="500"></canvas> -->
+    <canvas id= "canvas"></canvas>
 
 
     <div class = "back">
@@ -28,15 +50,15 @@
       <!-- <canvas id= "loadBG" class="load"></canvas> -->
     </div>
       <!-- Game Canvases -->
-      <div id = "gameScreen" class="game">
+      <!-- <div id = "gameScreen" class="game"> -->
         <!-- <canvas id= "gameBG" class="game"></canvas> -->
         
       </div>
       <!-- Loading Screen Canvases -->
       <div id = "loadScreen" class="load">
-        <canvas id= "loadBG" class="load"></canvas>
+        <!-- <canvas id= "loadBG" class="load"></canvas>
         <canvas id= "animated" class="load"></canvas>
-        <canvas id= "score" class="load"></canvas>
+        <canvas id= "score" class="load"></canvas> -->
       </div> 
     <!-- </div> -->
   </body>
