@@ -145,7 +145,7 @@ class Microgame {
 
                 if(obstacle.unitTypeArr.includes('enemy') && obstacle.collidesWith(this.player)) {
                     this.player.isAlive = false;
-                    this.player.sprite = '../src/space_balloon_images/space_balloon_death.png';
+                    this.player.sprite = 'src/space_balloon_images/space_balloon_death.png';
                 }
             }
             this.player.animate(spriteCtx);
@@ -157,43 +157,43 @@ class Microgame {
 
 var progressImg = {
     blowBar: [
-        '../src/blow_images/blow1.png',
-        '../src/blow_images/blow2.png',
-        '../src/blow_images/blow3.png',
-        '../src/blow_images/blow4.png',
-        '../src/blow_images/blow5.png',
-        '../src/blow_images/blow6.png'
+        'src/blow_images/blow1.png',
+        'src/blow_images/blow2.png',
+        'src/blow_images/blow3.png',
+        'src/blow_images/blow4.png',
+        'src/blow_images/blow5.png',
+        'src/blow_images/blow6.png'
     ],
     spaceBalloon: [
-        '../src/space_balloon_images/flap_default.png',
-        '../src/space_balloon_images/flap_down.png',
-        '../src/space_balloon_images/flap_up.png'
+        'src/space_balloon_images/flap_default.png',
+        'src/space_balloon_images/flap_down.png',
+        'src/space_balloon_images/flap_up.png'
     ],
     star: [
-        '../src/space_balloon_enemies/space_balloon_star1.png',
-        '../src/space_balloon_enemies/space_balloon_star2.png',
-        '../src/space_balloon_enemies/space_balloon_star3.png',
-        '../src/space_balloon_enemies/space_balloon_star4.png'
+        'src/space_balloon_enemies/space_balloon_star1.png',
+        'src/space_balloon_enemies/space_balloon_star2.png',
+        'src/space_balloon_enemies/space_balloon_star3.png',
+        'src/space_balloon_enemies/space_balloon_star4.png'
     ],
     ddr: [
-        '../src/ddr/up.png',
-        '../src/ddr/down.png',
-        '../src/ddr/left.png',
-        '../src/ddr/right.png',
-        '../src/ddr/victory.png',
-        '../src/ddr/defeat.png',
-        '../src/ddr/neutral.png'
+        'src/ddr/up.png',
+        'src/ddr/down.png',
+        'src/ddr/left.png',
+        'src/ddr/right.png',
+        'src/ddr/victory.png',
+        'src/ddr/defeat.png',
+        'src/ddr/neutral.png'
     ]
 }
 var ddrArrows = {
-    up: ['../src/ddr_dirs/up_arrow1.png', '../src/ddr_dirs/up_arrow2.png'
-    , '../src/ddr_dirs/up_arrow3.png', '../src/ddr_dirs/up_arrow4.png'],
-    down: ['../src/ddr_dirs/down_arrow1.png', '../src/ddr_dirs/down_arrow2.png'
-    , '../src/ddr_dirs/down_arrow3.png', '../src/ddr_dirs/down_arrow4.png'],
-    left: ['../src/ddr_dirs/left_arrow1.png', '../src/ddr_dirs/left_arrow2.png'
-    , '../src/ddr_dirs/left_arrow3.png', '../src/ddr_dirs/left_arrow4.png'],
-    right: ['../src/ddr_dirs/right_arrow1.png', '../src/ddr_dirs/right_arrow2.png'
-    , '../src/ddr_dirs/right_arrow3.png', '../src/ddr_dirs/right_arrow4.png']
+    up: ['src/ddr_dirs/up_arrow1.png', 'src/ddr_dirs/up_arrow2.png'
+    , 'src/ddr_dirs/up_arrow3.png', 'src/ddr_dirs/up_arrow4.png'],
+    down: ['src/ddr_dirs/down_arrow1.png', 'src/ddr_dirs/down_arrow2.png'
+    , 'src/ddr_dirs/down_arrow3.png', 'src/ddr_dirs/down_arrow4.png'],
+    left: ['src/ddr_dirs/left_arrow1.png', 'src/ddr_dirs/left_arrow2.png'
+    , 'src/ddr_dirs/left_arrow3.png', 'src/ddr_dirs/left_arrow4.png'],
+    right: ['src/ddr_dirs/right_arrow1.png', 'src/ddr_dirs/right_arrow2.png'
+    , 'src/ddr_dirs/right_arrow3.png', 'src/ddr_dirs/right_arrow4.png']
 }
 
 

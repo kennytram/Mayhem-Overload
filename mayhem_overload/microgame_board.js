@@ -1,6 +1,6 @@
-import Microgame from './microgame'
-import Sprite from './sprite'
-import Stage from './stage'
+import Microgame from '/microgame'
+import Sprite from '/sprite'
+import Stage from '/stage'
 
 class MicrogameBoard {
     constructor() {
@@ -34,8 +34,11 @@ class MicrogameBoard {
             this.microgame.reset(this.ctx);
             unbindKeys(); //in case if user refreshes
             this.bindKeyHandlers(this.microgame);
-
-            // this.startTimer(); //start Timer
+            if(this.microgame.objective === 'survive'){
+                this.timerBar.src = 'src/survival_timer1.png';
+            }
+            this.resetTimer();
+            this.startTimer(); //start Timer
             this.running = true;
 
             this.animate();
@@ -61,13 +64,13 @@ class MicrogameBoard {
     //COMPLETED
     animate() {
         if(this.running === true) {
-            // console.log(this.currTime);
-            // this.updateTimerbar();
+            console.log(this.currTime);
+            this.updateTimerbar();
             if(!this.currMicrogameFinished && this.microgame.won === true || this.restart === true ||
                 this.microgame.isGameOver && this.lives > 1) 
                 {
-                    // clearInterval(this.timerTimeout);
-                    // if(this.microgame.timeOutFunc) clearTimeout(this.microgame.timeOutFunc);
+                    clearInterval(this.timerTimeout);
+                    if(this.microgame.timeOutFunc) clearTimeout(this.microgame.timeOutFunc);
                     
                     unbindKeys();
                     
@@ -89,8 +92,15 @@ class MicrogameBoard {
                         }
                     }
                     if(this.microgame.isGameOver) {
-                        this.dialogue.innerHTML = "You Died";
-                        const heart = document.getElementById(`heart${this.lives}`).style.display = "none";
+                        if(this.currTime === 0) {
+                            this.dialogue.innerHTML = "SO ZETTA SLOW";
+                        }
+                        else {
+                            this.dialogue.innerHTML = "You Died";
+                        }
+                        
+                        const heart = document.getElementById(`heart${this.lives}`);
+                        heart.style.display = 'none';
                         this.lives--;
                         if(!isMuted) {
                             gameoverAudio.play();
@@ -132,7 +142,8 @@ class MicrogameBoard {
                     
                     if(!isMuted) spaceDeathAudio.play();
                 }
-                const heart = document.getElementById(`heart${this.lives}`).style.display = "none";
+                const heart = document.getElementById(`heart${this.lives}`);
+                heart.style.display = "none";
                 this.lives--;
                 if(!isMuted) {
                     loserAudio.play();
@@ -149,7 +160,6 @@ class MicrogameBoard {
         
     }
 
-    //incomplete for now to readjust for timer
     incrementScore() {
         this.score++;
     }
@@ -174,22 +184,52 @@ class MicrogameBoard {
         const that = this;
         that.timerTimeout = setInterval(()=> {
             that.currTime--;
+            if(that.currTime === 0) {
+                if(this.microgame.objective != 'survive'){
+                    //only for non-survival
+                    that.timerBar.src = TIMERBAR.at(-1); 
+                    that.microgame.isGameOver = true;
+                }
+                else{
+                    that.timerBar.src = SURVIVEBAR.at(-1); 
+                }
+            }
         }, 1000);
     }
 
     resetTimer() {
-        this.currTime = 10;
+        if(this.microgame.objective === 'survive') {
+            console.log('true');
+            this.currTime = 5;
+            this.timerBar.src = SURVIVEBAR[0];
+        }
+        else{
+            this.currTime = this.maxTime;
+        
+            this.timerBar.src = TIMERBAR[0];
+        }
+        
     }
 
     updateTimerbar() {
-        const calculate = Math.floor((this.maxTime - this.currTime) / 8);
-        for(let i = 0; i < 9; i++) {
-            console.log('test');
-            if(this.currTime < calculate*i) {
-                this.timerBar.src = TIMERBAR.at(-1*i);
-                console.log(this.timerBar.src);
-                break;
+        let calculate = Math.floor(this.maxTime / 8);
+        if(this.microgame.objective === 'survive') {
+            calculate = 1;
+            for(let i = 0; i < 6; i++) {
+                if(this.currTime < calculate*i) {
+                    this.timerBar.src = SURVIVEBAR.at(-1*i);
+                    break;
+                }
             }
+        }
+        else {
+            for(let i = 0; i < 9; i++) {
+                if(this.currTime < calculate*i) {
+                    this.timerBar.src = TIMERBAR.at(-1*i);
+                    break;
+                }
+            }
+        
         }
     }
 
@@ -297,38 +337,38 @@ class MicrogameBoard {
 }
 
 const STAGES = {
-    test: new Stage('../src/windrise-background.png', false),
-    blow: new Stage('../src/blow.png', false),
-    spaceBalloon: new Stage('../src/space_balloon_background_og.png', true),
-    ddr: new Stage('../src/dfloor.png', false)
+    test: new Stage('src/windrise-background.png', false),
+    blow: new Stage('src/blow.png', false),
+    spaceBalloon: new Stage('src/space_balloon_background_og.png', true),
+    ddr: new Stage('src/dfloor.png', false)
 };
 
 const PLAYERS = {
     test: new Sprite(null, 'random', ['player']),
-    blow: new Sprite('../src/blow_images/blow1.png', 'wallRight', ['player']),
-    spaceBalloon: new Sprite('../src/space_balloon_images/flap_default.png','rightSide',['player']),
-    ddr: new Sprite('../src/ddr/neutral.png', 'bottomSide', ['player'] )
+    blow: new Sprite('src/blow_images/blow1.png', 'wallRight', ['player']),
+    spaceBalloon: new Sprite('src/space_balloon_images/flap_default.png','rightSide',['player']),
+    ddr: new Sprite('src/ddr/neutral.png', 'bottomSide', ['player'] )
 };
 
 const OBSTACLES = {
     test : [],
     blow : [],
     spaceBalloon : [
-        new Sprite('../src/space_balloon_enemies/space_balloon_star1.png', 'random', ['enemy', 'movingRight']),
-        new Sprite('../src/space_balloon_enemies/space_balloon_star2.png', 'random', ['enemy', 'movingRight']),
-        new Sprite('../src/space_balloon_enemies/space_balloon_star3.png', 'random', ['enemy', 'movingRight']),
-        new Sprite('../src/space_balloon_enemies/space_balloon_star4.png', 'random', ['enemy', 'movingRight']),
-        new Sprite('../src/space_balloon_enemies/space_balloon_star1.png', 'random', ['enemy', 'movingRight']),
-        new Sprite('../src/space_balloon_enemies/space_balloon_star2.png', 'random', ['enemy', 'movingRight']),
-        new Sprite('../src/space_balloon_enemies/space_balloon_star3.png', 'random', ['enemy', 'movingRight']),
-        new Sprite('../src/space_balloon_enemies/space_balloon_star4.png', 'random', ['enemy', 'movingRight']),
-        new Sprite('../src/space_balloon_enemies/space_balloon_star1.png', 'random', ['enemy', 'movingRight']),
-        new Sprite('../src/space_balloon_enemies/space_balloon_star2.png', 'random', ['enemy', 'movingRight']),
-        new Sprite('../src/space_balloon_enemies/space_balloon_star3.png', 'random', ['enemy', 'movingRight']),
-        new Sprite('../src/space_balloon_enemies/space_balloon_star4.png', 'random', ['enemy', 'movingRight']),
+        new Sprite('src/space_balloon_enemies/space_balloon_star1.png', 'random', ['enemy', 'movingRight']),
+        new Sprite('src/space_balloon_enemies/space_balloon_star2.png', 'random', ['enemy', 'movingRight']),
+        new Sprite('src/space_balloon_enemies/space_balloon_star3.png', 'random', ['enemy', 'movingRight']),
+        new Sprite('src/space_balloon_enemies/space_balloon_star4.png', 'random', ['enemy', 'movingRight']),
+        new Sprite('src/space_balloon_enemies/space_balloon_star1.png', 'random', ['enemy', 'movingRight']),
+        new Sprite('src/space_balloon_enemies/space_balloon_star2.png', 'random', ['enemy', 'movingRight']),
+        new Sprite('src/space_balloon_enemies/space_balloon_star3.png', 'random', ['enemy', 'movingRight']),
+        new Sprite('src/space_balloon_enemies/space_balloon_star4.png', 'random', ['enemy', 'movingRight']),
+        new Sprite('src/space_balloon_enemies/space_balloon_star1.png', 'random', ['enemy', 'movingRight']),
+        new Sprite('src/space_balloon_enemies/space_balloon_star2.png', 'random', ['enemy', 'movingRight']),
+        new Sprite('src/space_balloon_enemies/space_balloon_star3.png', 'random', ['enemy', 'movingRight']),
+        new Sprite('src/space_balloon_enemies/space_balloon_star4.png', 'random', ['enemy', 'movingRight']),
     ],
     ddr: [
-        new Sprite('../src/ddr_dirs/up_arrow1.png', 'topLeft', ['friendly']),
+        new Sprite('src/ddr_dirs/up_arrow1.png', 'topLeft', ['friendly']),
     ]
 };
 
@@ -358,34 +398,26 @@ const MICROGAMES = {
 
 };
 
-// const timerbar1 = new Image();
-// const timerbar2 = new Image();
-// const timerbar3 = new Image();
-// const timerbar4 = new Image();
-// const timerbar5 = new Image();
-// const timerbar6 = new Image();
-// const timerbar7 = new Image();
-// const timerbar8 = new Image();
-// const timerbar9 = new Image();
-
-// let TIMERBAR = [timerbar1,timerbar2,timerbar3,timerbar4,
-//     timerbar5,timerbar6,timerbar7,timerbar8,timerbar9];
 let TIMERBAR = [];
 for(let i = 1; i < 10; i++) {
-    // TIMERBAR[i-1].src = `src/timer${i}.png`;
     TIMERBAR.push(`src/timer${i}.png`);
 }
 
+let SURVIVEBAR = [];
+for(let i = 1; i < 7; i++) {
+    SURVIVEBAR.push(`src/survival_timer${i}.png`);
+}
 
-var victoryAudio = new Audio('../src/victory.mp3');
-var blowAudio  = new Audio('../src/blow.ogg');
-var spaceBalloonAudio = new Audio('../src/flap.mp3')
-var spaceDeathAudio = new Audio('../src/balloon_burst.mp3');
-var gameoverAudio = new Audio('../src/gameover.mp3')
-var correctAudio = new Audio('../src/correct.mp3');
-var wrongAudio = new Audio('../src/wrong.mp3');
-var selectAudio = new Audio('../src/dance_select.mp3');
-var loserAudio = new Audio('../src/loser.mp3');
+
+var victoryAudio = new Audio('src/victory.mp3');
+var blowAudio  = new Audio('src/blow.ogg');
+var spaceBalloonAudio = new Audio('src/flap.mp3')
+var spaceDeathAudio = new Audio('src/balloon_burst.mp3');
+var gameoverAudio = new Audio('src/gameover.mp3')
+var correctAudio = new Audio('src/correct.mp3');
+var wrongAudio = new Audio('src/wrong.mp3');
+var selectAudio = new Audio('src/dance_select.mp3');
+var loserAudio = new Audio('src/loser.mp3');
 
 const audioArr = [victoryAudio, blowAudio, spaceBalloonAudio, spaceDeathAudio
     , gameoverAudio, correctAudio, wrongAudio, selectAudio, loserAudio];

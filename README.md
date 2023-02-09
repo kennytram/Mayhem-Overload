@@ -9,7 +9,7 @@ Mayhem Overload is a microgame mashup where the player has around 5-10 seconds t
 In Mayhem Overload, users will be able to:
 
 #### Core Features
-- play different microgames intuitively within a strict time constraint
+- play different microgames intuitively within a time constraint
 - be able to keep track of their score
 - suffer with information overload
 - have fun!
@@ -32,18 +32,13 @@ In Mayhem Overload, users will be able to:
   - Become an Intermediate-level Canvas Developer
   - Basic Classes finished
     - Classes
-      - Game
       - Microgame Board
       - Microgame
-      - Player
+      - Sprite
       - Stage
-      - Loading Stage
-      - Obstacle
-      - Optional: Particle
   - Screens completed
     - Title screen
     - Game screen
-    - Loading screen
 - Monday
   - implement some sounds
   - Some microgames created
