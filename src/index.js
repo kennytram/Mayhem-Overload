@@ -7,7 +7,7 @@ canvas.width = gameContainer.offsetWidth;
 canvas.height = gameContainer.offsetHeight;
 
 let isMuted = false;
-var menuAudio = new Audio('../assets/title/main_menu.mp3');
+var menuAudio = new Audio('assets/title/main_menu.mp3');
 menuAudio.play();
 menuAudio.volume = 0.3;
     
