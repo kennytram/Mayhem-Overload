@@ -363,8 +363,6 @@ const OBSTACLES = {
         new Sprite('assets/space_balloon/space_balloon_star4.png', 'random', ['enemy', 'movingRight']),
         new Sprite('assets/space_balloon/space_balloon_star1.png', 'random', ['enemy', 'movingRight']),
         new Sprite('assets/space_balloon/space_balloon_star2.png', 'random', ['enemy', 'movingRight']),
-        new Sprite('assets/space_balloon/space_balloon_star3.png', 'random', ['enemy', 'movingRight']),
-        new Sprite('assets/space_balloon/space_balloon_star4.png', 'random', ['enemy', 'movingRight']),
     ],
     ddr: [
         new Sprite('assets/ddr/up_arrow1.png', 'topLeft', ['friendly']),

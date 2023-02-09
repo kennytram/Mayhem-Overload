@@ -142,7 +142,7 @@ class Microgame {
 
                 if(obstacle.unitTypeArr.includes('enemy') && obstacle.collidesWith(this.player)) {
                     this.player.isAlive = false;
-                    this.player.sprite = 'assets/space_balloon/space_balloon_death.png';
+                    this.player.sprite = '../assets/space_balloon/space_balloon_death.png';
                 }
             }
             this.player.animate(spriteCtx);
@@ -154,43 +154,43 @@ class Microgame {
 
 var progressImg = {
     blowBar: [
-        'assets/blow/blow1.png',
-        'assets/blow/blow2.png',
-        'assets/blow/blow3.png',
-        'assets/blow/blow4.png',
-        'assets/blow/blow5.png',
-        'assets/blow/blow6.png'
+        '../assets/blow/blow1.png',
+        '../assets/blow/blow2.png',
+        '../assets/blow/blow3.png',
+        '../assets/blow/blow4.png',
+        '../assets/blow/blow5.png',
+        '../assets/blow/blow6.png'
     ],
     spaceBalloon: [
-        'assets/space_balloon/flap_default.png',
-        'assets/space_balloon/flap_down.png',
-        'assets/space_balloon/flap_up.png'
+        '../assets/space_balloon/flap_default.png',
+        '../assets/space_balloon/flap_down.png',
+        '../assets/space_balloon/flap_up.png'
     ],
     star: [
-        'assets/space_balloon/space_balloon_star1.png',
-        'assets/space_balloon/space_balloon_star2.png',
-        'assets/space_balloon/space_balloon_star3.png',
-        'assets/space_balloon/space_balloon_star4.png'
+        '../assets/space_balloon/space_balloon_star1.png',
+        '../assets/space_balloon/space_balloon_star2.png',
+        '../assets/space_balloon/space_balloon_star3.png',
+        '../assets/space_balloon/space_balloon_star4.png'
     ],
     ddr: [
-        'assets/ddr/up.png',
-        'assets/ddr/down.png',
-        'assets/ddr/left.png',
-        'assets/ddr/right.png',
-        'assets/ddr/victory.png',
-        'assets/ddr/defeat.png',
-        'assets/ddr/neutral.png'
+        '../assets/ddr/up.png',
+        '../assets/ddr/down.png',
+        '../assets/ddr/left.png',
+        '../assets/ddr/right.png',
+        '../assets/ddr/victory.png',
+        '../assets/ddr/defeat.png',
+        '../assets/ddr/neutral.png'
     ]
 }
 var ddrArrows = {
-    up: ['assets/ddr/up_arrow1.png', 'assets/ddr/up_arrow2.png'
-    , 'assets/ddr/up_arrow3.png', 'assets/ddr/up_arrow4.png'],
-    down: ['assets/ddr/down_arrow1.png', 'assets/ddr/down_arrow2.png'
-    , 'assets/ddr/down_arrow3.png', 'assets/ddr/down_arrow4.png'],
-    left: ['assets/ddr/left_arrow1.png', 'assets/ddr/left_arrow2.png'
-    , 'assets/ddr/left_arrow3.png', 'assets/ddr/left_arrow4.png'],
-    right: ['assets/ddr/right_arrow1.png', 'assets/ddr/right_arrow2.png'
-    , 'assets/ddr/right_arrow3.png', 'assets/ddr/right_arrow4.png']
+    up: ['../assets/ddr/up_arrow1.png', '../assets/ddr/up_arrow2.png'
+    , '../assets/ddr/up_arrow3.png', '../assets/ddr/up_arrow4.png'],
+    down: ['../assets/ddr/down_arrow1.png', '../assets/ddr/down_arrow2.png'
+    , '../assets/ddr/down_arrow3.png', '../assets/ddr/down_arrow4.png'],
+    left: ['../assets/ddr/left_arrow1.png', '../assets/ddr/left_arrow2.png'
+    , '../assets/ddr/left_arrow3.png', '../assets/ddr/left_arrow4.png'],
+    right: ['../assets/ddr/right_arrow1.png', '../assets/ddr/right_arrow2.png'
+    , '../assets/ddr/right_arrow3.png', '../assets/ddr/right_arrow4.png']
 }
 
 
