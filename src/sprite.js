@@ -25,7 +25,7 @@ class Sprite {
             
             CONSTANTS.FLAP_SPEED = Math.floor(ctx.canvas.height/80);
             CONSTANTS.TERMINAL_VEL = Math.floor(ctx.canvas.height/80);
-            CONSTANTS.GRAVITY = Math.max(Math.floor(ctx.canvas.width/800), 0.2);
+            CONSTANTS.GRAVITY = Math.max(Math.floor(ctx.canvas.width/1000), 0.2);
         }
         else if(this.posType === 'bottomSide') {
             this.xPos = Math.floor(ctx.canvas.width/2);
@@ -110,7 +110,7 @@ class Sprite {
                 else if (that.unitTypeArr.includes('enemy') && that.posType.includes('random')) {
                     that.spriteWidth = image.width*3
                     that.spriteHeight = image.height*3;
-                    that.xPos += 2;
+                    that.xPos += 4;
                     if(that.xPos >= ctx.canvas.width + that.spriteWidth) {
                         that.initializeSpritePos(ctx);
                     }

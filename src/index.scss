@@ -15,12 +15,12 @@ body {
 
 @font-face {
     font-family: 'customFont';
-    src: url('assets/gomarice_atama_simple.TTF') format('truetype')
+    src: url('../assets/gomarice_atama_simple.TTF') format('truetype')
 }
 
 @font-face {
     font-family: 'customFont2';
-    src: url('assets/impact.TTF') format('truetype')
+    src: url('../assets/impact.TTF') format('truetype')
 }
 
 #score_div {
@@ -223,7 +223,7 @@ body {
 
 #startButton {
     // outline: 5px outset black;
-    background-image: url('assets/title/start.png');
+    background-image: url('../assets/title/start.png');
     background-color: transparent;
     background-repeat: no-repeat;
     width: 100%; /* adjust width to fit your image */
@@ -232,13 +232,13 @@ body {
 }
 
 #startButton:hover {
-    background-image: url('assets/title/start_hovered.png');
+    background-image: url('../assets/title/start_hovered.png');
     background-color: transparent;
     cursor: pointer; /* show pointer cursor on hover */
 }
 
 #startButton:active {
-    background-image: url('assets/title/start_clicked.png');
+    background-image: url('../assets/title/start_clicked.png');
     background-color: transparent;
 }
 
