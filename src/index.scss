@@ -74,11 +74,11 @@ body {
 
 #hello_world {
     width: 33%;
-    // height: 100%;
     text-align: center;
     font-family: 'customFont';
-    // outline: 5px outset black;
-    font-size: 140%;
+    outline: 5px outset black;
+    font-size: 130%;
+    background: yellow;
 }
 #lives {
     display: flex;

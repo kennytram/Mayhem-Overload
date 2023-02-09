@@ -71,7 +71,9 @@ body {
   width: 33%;
   text-align: center;
   font-family: "customFont";
-  font-size: 140%;
+  outline: 5px outset black;
+  font-size: 130%;
+  background: yellow;
 }
 
 #lives {

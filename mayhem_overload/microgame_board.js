@@ -10,7 +10,7 @@ class MicrogameBoard {
         this.ctx = document.getElementById('canvas').getContext('2d')
         this.scoreEle = document.getElementById('score');
         this.dialogue = document.getElementById('dialogue');
-        this.timerBar = document.getElementById('timerBar');
+        this.timerBar = document.getElementById('timer_bar');
         // this.size = (Math.floor(this.stageCtx.canvas.width/100), Math.floor(this.stageCtx.canvas.height/100));
         this.currTime = 10;
         this.maxTime = 10;
@@ -34,7 +34,8 @@ class MicrogameBoard {
             this.microgame.reset(this.ctx);
             unbindKeys(); //in case if user refreshes
             this.bindKeyHandlers(this.microgame);
-            // this.startMicrogame(); //start Timer and this.running itself
+
+            this.startTimer(); //start Timer
             this.running = true;
 
             this.animate();
@@ -60,9 +61,12 @@ class MicrogameBoard {
     //COMPLETED
     animate() {
         if(this.running === true) {
+            // console.log(this.currTime);
+            this.updateTimerbar();
             if(!this.currMicrogameFinished && this.microgame.won === true || this.restart === true ||
                 this.microgame.isGameOver && this.lives > 1) 
                 {
+                    clearInterval(this.timerTimeout);
                     if(this.microgame.timeOutFunc) clearTimeout(this.microgame.timeOutFunc);
                     
                     unbindKeys();
@@ -101,11 +105,11 @@ class MicrogameBoard {
                     // cancelAnimationFrame(request);
                     // console.log(this.score);
                     setTimeout(function() {
-                        
                         that.microgame = that.randomizeMicrogame();
                         that.bindKeyHandlers(that.microgame);
                         // that.microgame.stageAnimate(that.ctx);
                         that.resetTimer();
+                        that.startTimer();
                         that.currMicrogameFinished = false;
                         // that.microgame.spriteAnimate(that.ctx);
                         
@@ -114,6 +118,7 @@ class MicrogameBoard {
             else if(this.lives <= 1 && this.microgame.isGameOver) {
                 unbindKeys();
                 currBGM = null;
+                clearInterval(this.timerTimeout);
                 this.dialogue.innerHTML = 'Game Over';
                 const that = this;
                 setTimeout(function() {
@@ -149,19 +154,8 @@ class MicrogameBoard {
         this.score++;
     }
 
-    startMicrogame() {
-        const that = this;
-        this.timerTimeout = function() {
-            setInterval(that.reduceTime.bind(that), 1000);
-        }
-        this.microgame.running = true;
-    }
-
     startTimer() {
-        const that = this;
-        this.timerTimeout = function() {
-            setInterval(that.reduceTime.bind(that), 1000);
-        }
+        this.reduceTime();
     }
 
     stopTimer() {
@@ -177,23 +171,31 @@ class MicrogameBoard {
     }
 
     reduceTime() {
-        console.log(this.currTime);
-        while(this.currTime > 0) {
-            this.currTime--;
-        }
+        const that = this;
+        that.timerTimeout = setInterval(()=> {
+            that.currTime--;
+        }, 1000);
     }
 
     resetTimer() {
         this.currTime = 10;
     }
 
-    
+    updateTimerbar() {
+        const calculate = Math.floor((this.maxTime - this.currTime) / 9);
+        for(let i = 1; i < 10; i++) {
+            console.log('test');
+            if(this.currTime < calculate*i) {
+                this.timerBar = TIMERBAR.at(-1*i);
+                console.log(this.timerBar.src); 
+                break;
+            }
+        }
+    }
 
     //COMPLETED except restart
     bindKeyHandlers(microgame) {
-        key('q', () => {
-            window.location.reload();
-        });
+        
         switch(microgame.controlSetting) {
             case "test":
                 key('w', () => this.microgame.player.move([0, -this.ctx.canvas.height/50], this.ctx));
@@ -324,10 +326,6 @@ const OBSTACLES = {
         new Sprite('../src/space_balloon_enemies/space_balloon_star2.png', 'random', ['enemy', 'movingRight']),
         new Sprite('../src/space_balloon_enemies/space_balloon_star3.png', 'random', ['enemy', 'movingRight']),
         new Sprite('../src/space_balloon_enemies/space_balloon_star4.png', 'random', ['enemy', 'movingRight']),
-        new Sprite('../src/space_balloon_enemies/space_balloon_star1.png', 'random', ['enemy', 'movingRight']),
-        new Sprite('../src/space_balloon_enemies/space_balloon_star2.png', 'random', ['enemy', 'movingRight']),
-        new Sprite('../src/space_balloon_enemies/space_balloon_star3.png', 'random', ['enemy', 'movingRight']),
-        new Sprite('../src/space_balloon_enemies/space_balloon_star4.png', 'random', ['enemy', 'movingRight']),
     ],
     ddr: [
         new Sprite('../src/ddr_dirs/up_arrow1.png', 'topLeft', ['friendly']),
@@ -360,6 +358,21 @@ const MICROGAMES = {
 
 };
 
+const timerbar1 = new Image();
+const timerbar2 = new Image();
+const timerbar3 = new Image();
+const timerbar4 = new Image();
+const timerbar5 = new Image();
+const timerbar6 = new Image();
+const timerbar7 = new Image();
+const timerbar8 = new Image();
+const timerbar9 = new Image();
+
+const TIMERBAR = [timerbar1,timerbar2,timerbar3,timerbar4,
+    timerbar5,timerbar6,timerbar7,timerbar8,timerbar9];
+for(let i = 1; i < 10; i++) {
+    TIMERBAR[i-1].src = `src/timer${i}.png`;
+}
 
 
 var victoryAudio = new Audio('../src/victory.mp3');
