@@ -35,7 +35,7 @@ class MicrogameBoard {
             unbindKeys(); //in case if user refreshes
             this.bindKeyHandlers(this.microgame);
 
-            this.startTimer(); //start Timer
+            // this.startTimer(); //start Timer
             this.running = true;
 
             this.animate();
@@ -62,12 +62,12 @@ class MicrogameBoard {
     animate() {
         if(this.running === true) {
             // console.log(this.currTime);
-            this.updateTimerbar();
+            // this.updateTimerbar();
             if(!this.currMicrogameFinished && this.microgame.won === true || this.restart === true ||
                 this.microgame.isGameOver && this.lives > 1) 
                 {
-                    clearInterval(this.timerTimeout);
-                    if(this.microgame.timeOutFunc) clearTimeout(this.microgame.timeOutFunc);
+                    // clearInterval(this.timerTimeout);
+                    // if(this.microgame.timeOutFunc) clearTimeout(this.microgame.timeOutFunc);
                     
                     unbindKeys();
                     
@@ -182,12 +182,12 @@ class MicrogameBoard {
     }
 
     updateTimerbar() {
-        const calculate = Math.floor((this.maxTime - this.currTime) / 9);
-        for(let i = 1; i < 10; i++) {
+        const calculate = Math.floor((this.maxTime - this.currTime) / 8);
+        for(let i = 0; i < 9; i++) {
             console.log('test');
             if(this.currTime < calculate*i) {
-                this.timerBar = TIMERBAR.at(-1*i);
-                console.log(this.timerBar.src); 
+                this.timerBar.src = TIMERBAR.at(-1*i);
+                console.log(this.timerBar.src);
                 break;
             }
         }
@@ -358,20 +358,22 @@ const MICROGAMES = {
 
 };
 
-const timerbar1 = new Image();
-const timerbar2 = new Image();
-const timerbar3 = new Image();
-const timerbar4 = new Image();
-const timerbar5 = new Image();
-const timerbar6 = new Image();
-const timerbar7 = new Image();
-const timerbar8 = new Image();
-const timerbar9 = new Image();
+// const timerbar1 = new Image();
+// const timerbar2 = new Image();
+// const timerbar3 = new Image();
+// const timerbar4 = new Image();
+// const timerbar5 = new Image();
+// const timerbar6 = new Image();
+// const timerbar7 = new Image();
+// const timerbar8 = new Image();
+// const timerbar9 = new Image();
 
-const TIMERBAR = [timerbar1,timerbar2,timerbar3,timerbar4,
-    timerbar5,timerbar6,timerbar7,timerbar8,timerbar9];
+// let TIMERBAR = [timerbar1,timerbar2,timerbar3,timerbar4,
+//     timerbar5,timerbar6,timerbar7,timerbar8,timerbar9];
+let TIMERBAR = [];
 for(let i = 1; i < 10; i++) {
-    TIMERBAR[i-1].src = `src/timer${i}.png`;
+    // TIMERBAR[i-1].src = `src/timer${i}.png`;
+    TIMERBAR.push(`src/timer${i}.png`);
 }
 
 
