@@ -1,4 +1,6 @@
-import MicrogameBoard from "src/mayhem_overload/microgame_board";
+// import Game from "../mayhem_overload/game";
+// import View from "../mayhem_overload/view";
+import MicrogameBoard from "../mayhem_overload/microgame_board";
 
 const canvas = document.querySelector("#canvas");
 const gameContainer = document.querySelector("#game_container");
@@ -6,10 +8,10 @@ canvas.width = gameContainer.offsetWidth;
 canvas.height = gameContainer.offsetHeight;
 
 let isMuted = false;
-var menuAudio = new Audio('src/main_menu.mp3');
+var menuAudio = new Audio('./src/main_menu.mp3');
 menuAudio.play();
 menuAudio.volume = 0.3;
-
+    
 key('m', () => {
     if(menuAudio) {
         isMuted = !isMuted;

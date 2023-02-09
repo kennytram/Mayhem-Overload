@@ -1,6 +1,6 @@
-import Microgame from '/microgame'
-import Sprite from '/sprite'
-import Stage from '/stage'
+import Microgame from './microgame'
+import Sprite from './sprite'
+import Stage from './stage'
 
 class MicrogameBoard {
     constructor() {
@@ -337,38 +337,38 @@ class MicrogameBoard {
 }
 
 const STAGES = {
-    test: new Stage('src/windrise-background.png', false),
-    blow: new Stage('src/blow.png', false),
-    spaceBalloon: new Stage('src/space_balloon_background_og.png', true),
-    ddr: new Stage('src/dfloor.png', false)
+    test: new Stage('../src/windrise-background.png', false),
+    blow: new Stage('../src/blow.png', false),
+    spaceBalloon: new Stage('../src/space_balloon_background_og.png', true),
+    ddr: new Stage('../src/dfloor.png', false)
 };
 
 const PLAYERS = {
     test: new Sprite(null, 'random', ['player']),
-    blow: new Sprite('src/blow_images/blow1.png', 'wallRight', ['player']),
-    spaceBalloon: new Sprite('src/space_balloon_images/flap_default.png','rightSide',['player']),
-    ddr: new Sprite('src/ddr/neutral.png', 'bottomSide', ['player'] )
+    blow: new Sprite('../src/blow_images/blow1.png', 'wallRight', ['player']),
+    spaceBalloon: new Sprite('../src/space_balloon_images/flap_default.png','rightSide',['player']),
+    ddr: new Sprite('../src/ddr/neutral.png', 'bottomSide', ['player'] )
 };
 
 const OBSTACLES = {
     test : [],
     blow : [],
     spaceBalloon : [
-        new Sprite('src/space_balloon_enemies/space_balloon_star1.png', 'random', ['enemy', 'movingRight']),
-        new Sprite('src/space_balloon_enemies/space_balloon_star2.png', 'random', ['enemy', 'movingRight']),
-        new Sprite('src/space_balloon_enemies/space_balloon_star3.png', 'random', ['enemy', 'movingRight']),
-        new Sprite('src/space_balloon_enemies/space_balloon_star4.png', 'random', ['enemy', 'movingRight']),
-        new Sprite('src/space_balloon_enemies/space_balloon_star1.png', 'random', ['enemy', 'movingRight']),
-        new Sprite('src/space_balloon_enemies/space_balloon_star2.png', 'random', ['enemy', 'movingRight']),
-        new Sprite('src/space_balloon_enemies/space_balloon_star3.png', 'random', ['enemy', 'movingRight']),
-        new Sprite('src/space_balloon_enemies/space_balloon_star4.png', 'random', ['enemy', 'movingRight']),
-        new Sprite('src/space_balloon_enemies/space_balloon_star1.png', 'random', ['enemy', 'movingRight']),
-        new Sprite('src/space_balloon_enemies/space_balloon_star2.png', 'random', ['enemy', 'movingRight']),
-        new Sprite('src/space_balloon_enemies/space_balloon_star3.png', 'random', ['enemy', 'movingRight']),
-        new Sprite('src/space_balloon_enemies/space_balloon_star4.png', 'random', ['enemy', 'movingRight']),
+        new Sprite('../src/space_balloon_enemies/space_balloon_star1.png', 'random', ['enemy', 'movingRight']),
+        new Sprite('../src/space_balloon_enemies/space_balloon_star2.png', 'random', ['enemy', 'movingRight']),
+        new Sprite('../src/space_balloon_enemies/space_balloon_star3.png', 'random', ['enemy', 'movingRight']),
+        new Sprite('../src/space_balloon_enemies/space_balloon_star4.png', 'random', ['enemy', 'movingRight']),
+        new Sprite('../src/space_balloon_enemies/space_balloon_star1.png', 'random', ['enemy', 'movingRight']),
+        new Sprite('../src/space_balloon_enemies/space_balloon_star2.png', 'random', ['enemy', 'movingRight']),
+        new Sprite('../src/space_balloon_enemies/space_balloon_star3.png', 'random', ['enemy', 'movingRight']),
+        new Sprite('../src/space_balloon_enemies/space_balloon_star4.png', 'random', ['enemy', 'movingRight']),
+        new Sprite('../src/space_balloon_enemies/space_balloon_star1.png', 'random', ['enemy', 'movingRight']),
+        new Sprite('../src/space_balloon_enemies/space_balloon_star2.png', 'random', ['enemy', 'movingRight']),
+        new Sprite('../src/space_balloon_enemies/space_balloon_star3.png', 'random', ['enemy', 'movingRight']),
+        new Sprite('../src/space_balloon_enemies/space_balloon_star4.png', 'random', ['enemy', 'movingRight']),
     ],
     ddr: [
-        new Sprite('src/ddr_dirs/up_arrow1.png', 'topLeft', ['friendly']),
+        new Sprite('../src/ddr_dirs/up_arrow1.png', 'topLeft', ['friendly']),
     ]
 };
 
@@ -409,15 +409,15 @@ for(let i = 1; i < 7; i++) {
 }
 
 
-var victoryAudio = new Audio('src/victory.mp3');
-var blowAudio  = new Audio('src/blow.ogg');
-var spaceBalloonAudio = new Audio('src/flap.mp3')
-var spaceDeathAudio = new Audio('src/balloon_burst.mp3');
-var gameoverAudio = new Audio('src/gameover.mp3')
-var correctAudio = new Audio('src/correct.mp3');
-var wrongAudio = new Audio('src/wrong.mp3');
-var selectAudio = new Audio('src/dance_select.mp3');
-var loserAudio = new Audio('src/loser.mp3');
+var victoryAudio = new Audio('../src/victory.mp3');
+var blowAudio  = new Audio('../src/blow.ogg');
+var spaceBalloonAudio = new Audio('../src/flap.mp3')
+var spaceDeathAudio = new Audio('../src/balloon_burst.mp3');
+var gameoverAudio = new Audio('../src/gameover.mp3')
+var correctAudio = new Audio('../src/correct.mp3');
+var wrongAudio = new Audio('../src/wrong.mp3');
+var selectAudio = new Audio('../src/dance_select.mp3');
+var loserAudio = new Audio('../src/loser.mp3');
 
 const audioArr = [victoryAudio, blowAudio, spaceBalloonAudio, spaceDeathAudio
     , gameoverAudio, correctAudio, wrongAudio, selectAudio, loserAudio];
