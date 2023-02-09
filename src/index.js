@@ -1,4 +1,3 @@
-
 import MicrogameBoard from "./microgame_board";
 
 const canvas = document.querySelector("#canvas");

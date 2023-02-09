@@ -35,7 +35,7 @@ class MicrogameBoard {
             unbindKeys(); //in case if user refreshes
             this.bindKeyHandlers(this.microgame);
             if(this.microgame.objective === 'survive'){
-                this.timerBar.src = '../assets/survival_timer1.png';
+                this.timerBar.src = 'assets/survival_timer1.png';
             }
             this.resetTimer();
             this.startTimer(); //start Timer
@@ -336,38 +336,38 @@ class MicrogameBoard {
 }
 
 const STAGES = {
-    test: new Stage('../assets/windrise-background.png', false),
-    blow: new Stage('../assets/blow/blow.png', false),
-    spaceBalloon: new Stage('../assets//space_balloon/space_balloon_background_og.png', true),
-    ddr: new Stage('../assets/ddr/dfloor.png', false)
+    test: new Stage('assets/windrise-background.png', false),
+    blow: new Stage('assets/blow/blow.png', false),
+    spaceBalloon: new Stage('assets//space_balloon/space_balloon_background_og.png', true),
+    ddr: new Stage('assets/ddr/dfloor.png', false)
 };
 
 const PLAYERS = {
     test: new Sprite(null, 'random', ['player']),
-    blow: new Sprite('../assets/blow/blow1.png', 'wallRight', ['player']),
-    spaceBalloon: new Sprite('../assets/space_balloon/flap_default.png','rightSide',['player']),
-    ddr: new Sprite('../assets/ddr/neutral.png', 'bottomSide', ['player'] )
+    blow: new Sprite('assets/blow/blow1.png', 'wallRight', ['player']),
+    spaceBalloon: new Sprite('assets/space_balloon/flap_default.png','rightSide',['player']),
+    ddr: new Sprite('assets/ddr/neutral.png', 'bottomSide', ['player'] )
 };
 
 const OBSTACLES = {
     test : [],
     blow : [],
     spaceBalloon : [
-        new Sprite('../assets/space_balloon/space_balloon_star1.png', 'random', ['enemy', 'movingRight']),
-        new Sprite('../assets/space_balloon/space_balloon_star2.png', 'random', ['enemy', 'movingRight']),
-        new Sprite('../assets/space_balloon/space_balloon_star3.png', 'random', ['enemy', 'movingRight']),
-        new Sprite('../assets/space_balloon/space_balloon_star4.png', 'random', ['enemy', 'movingRight']),
-        new Sprite('../assets/space_balloon/space_balloon_star1.png', 'random', ['enemy', 'movingRight']),
-        new Sprite('../assets/space_balloon/space_balloon_star2.png', 'random', ['enemy', 'movingRight']),
-        new Sprite('../assets/space_balloon/space_balloon_star3.png', 'random', ['enemy', 'movingRight']),
-        new Sprite('../assets/space_balloon/space_balloon_star4.png', 'random', ['enemy', 'movingRight']),
-        new Sprite('../assets/space_balloon/space_balloon_star1.png', 'random', ['enemy', 'movingRight']),
-        new Sprite('../assets/space_balloon/space_balloon_star2.png', 'random', ['enemy', 'movingRight']),
-        new Sprite('../assets/space_balloon/space_balloon_star3.png', 'random', ['enemy', 'movingRight']),
-        new Sprite('../assets/space_balloon/space_balloon_star4.png', 'random', ['enemy', 'movingRight']),
+        new Sprite('assets/space_balloon/space_balloon_star1.png', 'random', ['enemy', 'movingRight']),
+        new Sprite('assets/space_balloon/space_balloon_star2.png', 'random', ['enemy', 'movingRight']),
+        new Sprite('assets/space_balloon/space_balloon_star3.png', 'random', ['enemy', 'movingRight']),
+        new Sprite('assets/space_balloon/space_balloon_star4.png', 'random', ['enemy', 'movingRight']),
+        new Sprite('assets/space_balloon/space_balloon_star1.png', 'random', ['enemy', 'movingRight']),
+        new Sprite('assets/space_balloon/space_balloon_star2.png', 'random', ['enemy', 'movingRight']),
+        new Sprite('assets/space_balloon/space_balloon_star3.png', 'random', ['enemy', 'movingRight']),
+        new Sprite('assets/space_balloon/space_balloon_star4.png', 'random', ['enemy', 'movingRight']),
+        new Sprite('assets/space_balloon/space_balloon_star1.png', 'random', ['enemy', 'movingRight']),
+        new Sprite('assets/space_balloon/space_balloon_star2.png', 'random', ['enemy', 'movingRight']),
+        new Sprite('assets/space_balloon/space_balloon_star3.png', 'random', ['enemy', 'movingRight']),
+        new Sprite('assets/space_balloon/space_balloon_star4.png', 'random', ['enemy', 'movingRight']),
     ],
     ddr: [
-        new Sprite('../assets/ddr/up_arrow1.png', 'topLeft', ['friendly']),
+        new Sprite('assets/ddr/up_arrow1.png', 'topLeft', ['friendly']),
     ]
 };
 
@@ -384,39 +384,39 @@ const MICROGAMES = {
     // , OBSTACLES['test'], null, null, KEYS["test"]),
     blow: new Microgame(STAGES['blow']
     , PLAYERS['blow']
-    , OBSTACLES['blow'], new Audio("../assets/blow/thar_he_blows.mp3")
+    , OBSTACLES['blow'], new Audio("assets/blow/thar_he_blows.mp3")
     , "blowBar", KEYS["blow"], "Use Spacebar to Blow"),
     spaceBalloon: new Microgame(STAGES['spaceBalloon']
     , PLAYERS['spaceBalloon']
-    , OBSTACLES['spaceBalloon'], new Audio("../assets/space_balloon/space_balloon.mp3")
+    , OBSTACLES['spaceBalloon'], new Audio("assets/space_balloon/space_balloon.mp3")
     , "survive", KEYS["spaceBalloon"], "Spacebar to Flap"),
     ddr: new Microgame(STAGES['ddr']
     , PLAYERS['ddr']
-    , OBSTACLES['ddr'], new Audio("../assets/ddr/dance.mp3")
+    , OBSTACLES['ddr'], new Audio("assets/ddr/dance.mp3")
     , "ddr", KEYS['ddr'], "Follow the Arrows")
 
 };
 
 let TIMERBAR = [];
 for(let i = 1; i < 10; i++) {
-    TIMERBAR.push(`../assets/timer${i}.png`);
+    TIMERBAR.push(`assets/timer${i}.png`);
 }
 
 let SURVIVEBAR = [];
 for(let i = 1; i < 7; i++) {
-    SURVIVEBAR.push(`../assets/survival_timer${i}.png`);
+    SURVIVEBAR.push(`assets/survival_timer${i}.png`);
 }
 
 
-var victoryAudio = new Audio('../assets/victory.mp3');
-var blowAudio  = new Audio('../assets/blow/blow.ogg');
-var spaceBalloonAudio = new Audio('../assets/space_balloon/flap.mp3')
-var spaceDeathAudio = new Audio('../assets/space_balloon/balloon_burst.mp3');
-var gameoverAudio = new Audio('../assets/gameover.mp3')
-var correctAudio = new Audio('../assets/correct.mp3');
-var wrongAudio = new Audio('../assets/wrong.mp3');
-var selectAudio = new Audio('../assets/ddr/dance_select.mp3');
-var loserAudio = new Audio('../assets/loser.mp3');
+var victoryAudio = new Audio('assets/victory.mp3');
+var blowAudio  = new Audio('assets/blow/blow.ogg');
+var spaceBalloonAudio = new Audio('assets/space_balloon/flap.mp3')
+var spaceDeathAudio = new Audio('assets/space_balloon/balloon_burst.mp3');
+var gameoverAudio = new Audio('assets/gameover.mp3')
+var correctAudio = new Audio('assets/correct.mp3');
+var wrongAudio = new Audio('assets/wrong.mp3');
+var selectAudio = new Audio('assets/ddr/dance_select.mp3');
+var loserAudio = new Audio('assets/loser.mp3');
 
 const audioArr = [victoryAudio, blowAudio, spaceBalloonAudio, spaceDeathAudio
     , gameoverAudio, correctAudio, wrongAudio, selectAudio, loserAudio];
