@@ -8,6 +8,9 @@ class MicrogameBoard {
         // this.stageCtx = document.getElementById('stage_canvas').getContext('2d');
         // this.spriteCtx = document.getElementById('sprite_canvas').getContext('2d');
         this.ctx = document.getElementById('canvas').getContext('2d')
+        this.scoreEle = document.getElementById('score');
+        this.dialogue = document.getElementById('dialogue');
+        this.timerBar = document.getElementById('timerBar');
         // this.size = (Math.floor(this.stageCtx.canvas.width/100), Math.floor(this.stageCtx.canvas.height/100));
         this.currTime = 10;
         this.maxTime = 10;
@@ -20,19 +23,20 @@ class MicrogameBoard {
         this.currMicrogameFinished = false;
         this.restart = false;
 
-        
+        this.timerTimeout = null;
     }
 
     //Status: COMPLETED
     play() {
         this.microgame = this.randomizeMicrogame();
         if(this.microgame) {
-            this.running = true;
+            
             this.microgame.reset(this.ctx);
             unbindKeys(); //in case if user refreshes
             this.bindKeyHandlers(this.microgame);
             // this.startMicrogame(); //start Timer and this.running itself
-            // this.microgame.stageAnimate(this.ctx);
+            this.running = true;
+
             this.animate();
         }
         else{
@@ -49,47 +53,72 @@ class MicrogameBoard {
         currBGM = microgames[microgameIdx].bgm;
         if(!isMuted && currBGM) currBGM.play();
         audioArr.push(microgames[microgameIdx].bgm);
+        this.dialogue.innerHTML = microgames[microgameIdx].dialogue;
         return microgames[microgameIdx]; 
     }
 
     //COMPLETED
     animate() {
         if(this.running === true) {
-            if(!this.currMicrogameFinished && this.microgame.won === true || this.restart === true) {
-                unbindKeys();
-                this.microgame.won = false;
-                if(!this.restart) this.incrementScore();
-                
-                this.currMicrogameFinished = true;
-                
-                if(victoryAudio.paused && !isMuted && !this.restart) {
-                    for(const audio of audioArr) {
-                        audio.pause();
-                        audio.currentTime = 0;
+            if(!this.currMicrogameFinished && this.microgame.won === true || this.restart === true ||
+                this.microgame.isGameOver && this.lives > 1) 
+                {
+                    if(this.microgame.timeOutFunc) clearTimeout(this.microgame.timeOutFunc);
+                    
+                    unbindKeys();
+                    
+                    this.microgame.won = false;
+                    if(!this.restart && !this.microgame.isGameOver) {
+                        this.incrementScore();
+                        this.scoreEle.innerHTML = `Score: ${this.score}`;
                     }
-                    victoryAudio.play();
-                }
-                this.restart = false;
-                //pop out BGM
-                audioArr.pop();
+                    
+                    this.currMicrogameFinished = true;
+                    
+                    if(victoryAudio.paused && !isMuted && !this.restart) {
+                        for(const audio of audioArr) {
+                            audio.pause();
+                            audio.currentTime = 0;
+                        }
+                        if(!this.microgame.isGameOver) {
+                            victoryAudio.play();
+                        }
+                    }
+                    if(this.microgame.isGameOver) {
+                        this.dialogue.innerHTML = "You Died";
+                        const heart = document.getElementById(`heart${this.lives}`).style.display = "none";
+                        this.lives--;
+                        if(!isMuted) {
+                            gameoverAudio.play();
+                        }
+                    }
+                    this.restart = false;
+                    this.microgame.isGameOver = false;
+                    //pop out BGM
+                    audioArr.pop();
 
-                const that = this;
-                // cancelAnimationFrame(request);
-                // console.log(this.score);
-                setTimeout(function() {
-                    
-                    that.microgame = that.randomizeMicrogame();
-                    that.bindKeyHandlers(that.microgame);
-                    // that.microgame.stageAnimate(that.ctx);
-                    that.resetTimer();
-                    that.currMicrogameFinished = false;
-                    // that.microgame.spriteAnimate(that.ctx);
-                    
-                }, 2500);
+                    const that = this;
+                    // cancelAnimationFrame(request);
+                    // console.log(this.score);
+                    setTimeout(function() {
+                        
+                        that.microgame = that.randomizeMicrogame();
+                        that.bindKeyHandlers(that.microgame);
+                        // that.microgame.stageAnimate(that.ctx);
+                        that.resetTimer();
+                        that.currMicrogameFinished = false;
+                        // that.microgame.spriteAnimate(that.ctx);
+                        
+                    }, 2500);
             }
-            else if(this.microgame.isGameOver === true) {
+            else if(this.lives <= 1 && this.microgame.isGameOver) {
                 unbindKeys();
                 currBGM = null;
+                this.dialogue.innerHTML = 'Game Over';
+                const that = this;
+                setTimeout(function() {
+                    that.dialogue.innerHTML = 'Press Q to Restart';
+                }, 3000)
                 for(const audio of audioArr) {
                     audio.pause();
                     audio.currentTime = 0;
@@ -98,9 +127,12 @@ class MicrogameBoard {
                     
                     if(!isMuted) spaceDeathAudio.play();
                 }
-                if(!isMuted) gameoverAudio.play();
+                const heart = document.getElementById(`heart${this.lives}`).style.display = "none";
+                this.lives--;
+                if(!isMuted) {
+                    loserAudio.play();
+                }
                 this.running = false;
-                console.log(this.score);
             }
             else if(this.currTime > 0 && !this.currMicrogameFinished) {
                 this.microgame.stageAnimate(this.ctx);
@@ -118,8 +150,22 @@ class MicrogameBoard {
     }
 
     startMicrogame() {
-        setInterval(this.reduceTime.bind(this), 1000);
+        const that = this;
+        this.timerTimeout = function() {
+            setInterval(that.reduceTime.bind(that), 1000);
+        }
         this.microgame.running = true;
+    }
+
+    startTimer() {
+        const that = this;
+        this.timerTimeout = function() {
+            setInterval(that.reduceTime.bind(that), 1000);
+        }
+    }
+
+    stopTimer() {
+        clearTimeout(this.timerTimeout);
     }
 
     setMicrogame(microgame) {
@@ -131,6 +177,7 @@ class MicrogameBoard {
     }
 
     reduceTime() {
+        console.log(this.currTime);
         while(this.currTime > 0) {
             this.currTime--;
         }
@@ -273,6 +320,14 @@ const OBSTACLES = {
         new Sprite('../src/space_balloon_enemies/space_balloon_star2.png', 'random', ['enemy', 'movingRight']),
         new Sprite('../src/space_balloon_enemies/space_balloon_star3.png', 'random', ['enemy', 'movingRight']),
         new Sprite('../src/space_balloon_enemies/space_balloon_star4.png', 'random', ['enemy', 'movingRight']),
+        new Sprite('../src/space_balloon_enemies/space_balloon_star1.png', 'random', ['enemy', 'movingRight']),
+        new Sprite('../src/space_balloon_enemies/space_balloon_star2.png', 'random', ['enemy', 'movingRight']),
+        new Sprite('../src/space_balloon_enemies/space_balloon_star3.png', 'random', ['enemy', 'movingRight']),
+        new Sprite('../src/space_balloon_enemies/space_balloon_star4.png', 'random', ['enemy', 'movingRight']),
+        new Sprite('../src/space_balloon_enemies/space_balloon_star1.png', 'random', ['enemy', 'movingRight']),
+        new Sprite('../src/space_balloon_enemies/space_balloon_star2.png', 'random', ['enemy', 'movingRight']),
+        new Sprite('../src/space_balloon_enemies/space_balloon_star3.png', 'random', ['enemy', 'movingRight']),
+        new Sprite('../src/space_balloon_enemies/space_balloon_star4.png', 'random', ['enemy', 'movingRight']),
     ],
     ddr: [
         new Sprite('../src/ddr_dirs/up_arrow1.png', 'topLeft', ['friendly']),
@@ -292,13 +347,16 @@ const MICROGAMES = {
     // , OBSTACLES['test'], null, null, KEYS["test"]),
     blow: new Microgame(STAGES['blow']
     , PLAYERS['blow']
-    , OBSTACLES['blow'], new Audio("../src/bgm/thar_he_blows.mp3"), "blowBar", KEYS["blow"]),
+    , OBSTACLES['blow'], new Audio("../src/bgm/thar_he_blows.mp3")
+    , "blowBar", KEYS["blow"], "Use Spacebar to Blow"),
     spaceBalloon: new Microgame(STAGES['spaceBalloon']
     , PLAYERS['spaceBalloon']
-    , OBSTACLES['spaceBalloon'], new Audio("../src/bgm/space_balloon.mp3"), "survive", KEYS["spaceBalloon"]),
+    , OBSTACLES['spaceBalloon'], new Audio("../src/bgm/space_balloon.mp3")
+    , "survive", KEYS["spaceBalloon"], "Spacebar to Flap"),
     ddr: new Microgame(STAGES['ddr']
     , PLAYERS['ddr']
-    , OBSTACLES['ddr'], new Audio("../src/bgm/dance.mp3"), "ddr", KEYS['ddr'])
+    , OBSTACLES['ddr'], new Audio("../src/bgm/dance.mp3")
+    , "ddr", KEYS['ddr'], "Follow the Arrows")
 
 };
 
@@ -312,15 +370,15 @@ var gameoverAudio = new Audio('../src/gameover.mp3')
 var correctAudio = new Audio('../src/correct.mp3');
 var wrongAudio = new Audio('../src/wrong.mp3');
 var selectAudio = new Audio('../src/dance_select.mp3');
+var loserAudio = new Audio('../src/loser.mp3');
 
 const audioArr = [victoryAudio, blowAudio, spaceBalloonAudio, spaceDeathAudio
-    , gameoverAudio, correctAudio, wrongAudio, selectAudio];
+    , gameoverAudio, correctAudio, wrongAudio, selectAudio, loserAudio];
 
 var currBGM = null;
 var isMuted = false;
 
 var bindKeys = ['m','q'];
-
 
 key('m', () => {
     isMuted = !isMuted;

@@ -7,23 +7,29 @@ const gameContainer = document.querySelector("#game_container");
 canvas.width = gameContainer.offsetWidth;
 canvas.height = gameContainer.offsetHeight;
 
+let isMuted = false;
+var menuAudio = new Audio('./src/main_menu.mp3');
+menuAudio.play();
+menuAudio.volume = 0.3;
+
+key('m', () => {
+    if(menuAudio) {
+        isMuted = !isMuted;
+        menuAudio.pause();
+        if(!isMuted) menuAudio.play();
+    }
+});
+
 const startBtn = document.querySelector("#startButton");
 const func = function () {
     startBtn.disabled = true;
+    menuAudio.pause();
+    menuAudio = null;
+    const gameContainer = document.querySelector("#game_container");
+    canvas.width = gameContainer.offsetWidth;
+    canvas.height = gameContainer.offsetHeight;
     document.querySelector("#canvas").style.zIndex = 2;
-    const gameBoard = new MicrogameBoard();
+    const gameBoard = new MicrogameBoard(); 
     gameBoard.play();
 }
 startBtn.addEventListener("click", func);
-
-
-
-
-// key('q', () => {
-//     for(const audio of audioArr) {
-//         audio.pause();
-//         audio.currentTime = 0;
-//     }
-//     this.restart = true;
-//     bindKeys.push('q');
-// });

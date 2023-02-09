@@ -3,19 +3,24 @@ import Sprite from './sprite';
 
 class Microgame {
     
-    constructor(stage, player, obstacles, bgm, objective, controlSetting) {
+    constructor(stage, player, obstacles, bgm, objective, controlSetting, dialogue) {
         this.stage = stage;
         this.player = player;
         this.obstacles = obstacles || [];
         this.bgm = bgm;
         this.objective = objective;
+        if(this.objective==='ddr') this.bgm.volume = 0.4;
         this.won = false;
         this.isGameOver = false;
         this.controlSetting = controlSetting;
         this.barAmount = 0;
+        this.dialogue = dialogue;
 
         this.count = 0; //bandaid fix;
         this.ddrAnswers = [];
+
+
+        this.timeOutFunc = null;
     }
 
     reset(ctx) {
@@ -24,6 +29,8 @@ class Microgame {
         this.barAmount = 0;
         this.count = 0;
         this.ddrAnswers = [];
+        if(this.timeOutFunc) clearTimeout(this.timeOutFunc);
+        this.timeOutFunc = null;
         
         this.player.reset(ctx);
         for(const obstacle of this.obstacles) obstacle.reset(ctx, this.player);
@@ -69,7 +76,7 @@ class Microgame {
             }
             if(this.count === 0) {
                 const that = this;
-                setTimeout(function()   {
+                that.timeOutFunc = setTimeout(function()   {
                     if(that.player.isAlive) {
                         that.won = true;
                     }

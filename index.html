@@ -13,7 +13,7 @@
   </head>
 
   <body>
-    <div id="score"><h2></h2></div>
+    <div id="score_div"><h2 id="score">Score: 0</h2></div>
     <div id="game_container">
       <div id="top_title_box">
         <div id="empty_top_div">
@@ -21,7 +21,7 @@
         <div id="title"><p>Mayhem Overload</p></div>
         <div id="icons_div">
           <div id="empty_icon_div"></div>
-          <a href = "https://github.com/kennytram"><img src="/src/title/github.png" ></img></a>
+          <a href = "https://github.com/kennytram" target="_blank"><img src="/src/title/github.png" ></img></a>
         </div>
       </div>
       <div id="bottom_title_box">
@@ -38,29 +38,18 @@
     </div>
     <div id = "empty_container"></div>
     <div id = 'background_container'>
-      <div id ="hello_world"><p>... Hello World ...</p></div>
-    </div>
-    <!--<canvas id= "canvas" width="500" height="500"></canvas> -->
-    <canvas id= "canvas"></canvas>
-
-
-    <div class = "back">
-      <!-- <canvas id="titleBG"></canvas> -->
-      <!-- <canvas id= "gameBG" class="game"></canvas> -->
-      <!-- <canvas id= "loadBG" class="load"></canvas> -->
-    </div>
-      <!-- Game Canvases -->
-      <!-- <div id = "gameScreen" class="game"> -->
-        <!-- <canvas id= "gameBG" class="game"></canvas> -->
-        
+      <div id ="timer_div">
+        <p id='timer'>Timer: </p>
+        <img src="src/timer1.png" id ="timer_bar"></img>
       </div>
-      <!-- Loading Screen Canvases -->
-      <div id = "loadScreen" class="load">
-        <!-- <canvas id= "loadBG" class="load"></canvas>
-        <canvas id= "animated" class="load"></canvas>
-        <canvas id= "score" class="load"></canvas> -->
-      </div> 
-    <!-- </div> -->
+      <div id ="hello_world"><p id="dialogue">... Hello World ...</p></div>
+      <div id="lives">
+        <img src="src/title/heart.png" id="heart1"></img>
+        <img src="src/title/heart.png" id="heart2"></img>
+        <img src="src/title/heart.png" id="heart3"></img>
+      </div>
+    </div>
+    <canvas id= "canvas"></canvas>
   </body>
 
 </html>

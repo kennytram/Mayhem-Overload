@@ -16,12 +16,16 @@ class Sprite {
 
     initializeSpritePos(ctx, player=null) {
         if(this.posType === 'rightSide') {
+            if(this.sprite === '../src/space_balloon_images/space_balloon_death.png') {
+                this.sprite = '../src/space_balloon_images/flap_default.png'
+            }
             this.xPos = Math.floor(ctx.canvas.width - ctx.canvas.width/3);
             this.yPos = Math.floor(ctx.canvas.height/4);
             
-            CONSTANTS.GRAVITY = Math.floor(ctx.canvas.width/1000);
+            
             CONSTANTS.FLAP_SPEED = Math.floor(ctx.canvas.height/80);
             CONSTANTS.TERMINAL_VEL = Math.floor(ctx.canvas.height/80);
+            CONSTANTS.GRAVITY = Math.max(Math.floor(ctx.canvas.width/800), 0.2);
         }
         else if(this.posType === 'bottomSide') {
             this.xPos = Math.floor(ctx.canvas.width/2);
@@ -106,7 +110,7 @@ class Sprite {
                 else if (that.unitTypeArr.includes('enemy') && that.posType.includes('random')) {
                     that.spriteWidth = image.width*3
                     that.spriteHeight = image.height*3;
-                    that.xPos += 3;
+                    that.xPos += 5;
                     if(that.xPos >= ctx.canvas.width + that.spriteWidth) {
                         that.initializeSpritePos(ctx);
                     }
