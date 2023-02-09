@@ -1,4 +1,4 @@
-import MicrogameBoard from "mayhem_overload/microgame_board";
+import MicrogameBoard from "src/mayhem_overload/microgame_board";
 
 const canvas = document.querySelector("#canvas");
 const gameContainer = document.querySelector("#game_container");
