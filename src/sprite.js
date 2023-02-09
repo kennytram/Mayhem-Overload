@@ -23,9 +23,9 @@ class Sprite {
             this.yPos = Math.floor(ctx.canvas.height/4);
             
             
-            CONSTANTS.FLAP_SPEED = Math.floor(ctx.canvas.height/70);
-            CONSTANTS.TERMINAL_VEL = Math.floor(ctx.canvas.height/70);
-            CONSTANTS.GRAVITY = Math.max(Math.floor(ctx.canvas.width/1000), 0.1);
+            CONSTANTS.FLAP_SPEED = Math.floor(ctx.canvas.height/50);
+            CONSTANTS.TERMINAL_VEL = Math.floor(ctx.canvas.height/50);
+            CONSTANTS.GRAVITY = Math.max(Math.floor(ctx.canvas.width/5000), 0.1);
         }
         else if(this.posType === 'bottomSide') {
             this.xPos = Math.floor(ctx.canvas.width/2);
