@@ -16,8 +16,8 @@ class Sprite {
 
     initializeSpritePos(ctx, player=null) {
         if(this.posType === 'rightSide') {
-            if(this.sprite === 'assets/space_balloon/space_balloon_death.png') {
-                this.sprite = 'assets/space_balloon/flap_default.png'
+            if(this.sprite === 'https://kennytram.github.io/Mayhem-Overload/space_balloon/space_balloon_death.png') {
+                this.sprite = 'https://kennytram.github.io/Mayhem-Overload/space_balloon/flap_default.png'
             }
             this.xPos = Math.floor(ctx.canvas.width - ctx.canvas.width/3);
             this.yPos = Math.floor(ctx.canvas.height/4);
@@ -174,7 +174,7 @@ class Sprite {
             if(this.yPos + this.spriteHeight>= ctx.canvas.height) {
                 this.yPos = ctx.canvas.height - this.spriteHeight;
                 this.isAlive = false;
-                this.sprite = 'assets/space_balloon/space_balloon_death.png';
+                this.sprite = 'https://kennytram.github.io/Mayhem-Overload/assets/space_balloon/space_balloon_death.png';
             }
             else{
                 this.yPos += this.vel
@@ -197,13 +197,13 @@ class Sprite {
 
     flap(){
         this.vel = -1 * CONSTANTS.FLAP_SPEED;
-        this.sprite = 'assets/space_balloon/flap_down.png';
+        this.sprite = 'https://kennytram.github.io/Mayhem-Overload/assets/space_balloon/flap_down.png';
         const that = this;
         setTimeout(function() {
-            that.sprite = 'assets/space_balloon/flap_up.png';
+            that.sprite = 'https://kennytram.github.io/Mayhem-Overload/assets/space_balloon/flap_up.png';
         },100);
         setTimeout(function() {
-            that.sprite = 'assets/space_balloon/flap_default.png';
+            that.sprite = 'https://kennytram.github.io/Mayhem-Overload/assets/space_balloon/flap_default.png';
         },200);
     }
 
