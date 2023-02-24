@@ -1,6 +1,6 @@
 # Mayhem Overload
 #### A game that is overloaded with mayhem <img src="https://media.tenor.com/Ivb2PnLZzsUAAAAM/fire-elmo.gif" width=60 height=40>
-<a href="kennytram.github.io" target="_blank">Click Here to Play!</a>
+<a href="https://kennytram.github.io/Mayhem-Overload/" target="_blank">Click Here to Play!</a>
 
 ## Background
 
