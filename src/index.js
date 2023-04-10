@@ -6,9 +6,9 @@ canvas.width = gameContainer.offsetWidth;
 canvas.height = gameContainer.offsetHeight;
 
 let isMuted = false;
-var menuAudio = new Audio('assets/title/main_menu.mp3');
-menuAudio.play();
-menuAudio.volume = 0.3;
+// var menuAudio = new Audio('assets/title/main_menu.mp3');
+// menuAudio.play();
+// menuAudio.volume = 0.3;
     
 key('m', () => {
     if(menuAudio) {
@@ -27,7 +27,7 @@ const func = function () {
     menuAudio.pause();
     menuAudio = null;
     clearInterval(dialogueTimeout);
-    const gameContainer = document.querySelector("#game_container");
+    const gameContainer = document.querySelector("#game-container");
     canvas.width = gameContainer.offsetWidth;
     canvas.height = gameContainer.offsetHeight;
     document.querySelector("#canvas").style.zIndex = 2;
@@ -56,8 +56,7 @@ const dialogues = [
     "You dont have bugs, only features",
     "I will debug all your code forever",
     "Can I request a pull",
-    "I can resolve my promise to love you forever",
-    "... Hello World ..."
+    "I can resolve my promise to love you forever"
 ];
 let count = 1;
 let dialogueTimeout = setInterval(() => {

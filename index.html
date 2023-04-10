@@ -1,42 +1,64 @@
 <!DOCTYPE html>
 <html lang="en">
 
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <link rel="stylesheet" href="./dist/main.css" />
-    <link rel="icon" type="image/x-icon" href="assets/favicon.png">
-    <script src="./dist/main.js" defer></script>
-    <script src="./src/scripts/keymaster.js"></script>
-    <title>Mayhem Overload</title>
-  </head>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <link rel="stylesheet" href="./dist/main.css" />
+  <link rel="stylesheet" href="./src/styles/reset.css" />
+  <link rel="icon" type="image/x-icon" href="assets/favicon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+  <script src="./dist/main.js" defer></script>
+  <script src="./src/scripts/keymaster.js"></script>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.3/TweenMax.min.js"></script>
+  <title>Mayhem Overload</title>
+</head>
 
-  <body>
-    <div id="score_div"><h2 id="score">Score: 0</h2></div>
-    <div id="game_container">
-      <div id="top_title_box">
-        <div id="empty_top_div">
+<body>
+
+</body>
+
+
+</html>
+
+<body>
+  <!-- <div id="score_div"><h2 id="score">Score: 0</h2></div> -->
+  <!-- <img id="nintendo-switch-bg" src="assets/title/nintendo-switch-bg.png"> -->
+  <!-- <div id="score_div">Score: 0</div> -->
+  <!-- <div id="empty_icon_div"></div> -->
+  <!-- <div id="start">
+    <button id="startButton">
+    </button>
+  </div> -->
+  <div id="game-container">
+    <div id="game-wrapper">
+      <div id="top-title-box">
+        <div id="score-div">Score: 0</div>
+        <div id="title">
+          <p>Mayhem Overload</p>
         </div>
-        <div id="title"><p>Mayhem Overload</p></div>
-        <div id="icons_div">
-          <div id="empty_icon_div"></div>
-          <a href = "https://github.com/kennytram" target="_blank"><img src="assets/title/github.png" ></img></a>
+        <div id="icons-div">
+          <a href="https://www.linkedin.com/in/kennytram/" target="_blank"><img src="assets/title/linkedin-square.png"
+              class="social-icon" id="linkedin-icon"></img></a>
+          <a href="https://github.com/kennytram" target="_blank"><img src="assets/title/github-square.png"
+              class="social-icon" id="github-icon"></img></a>  
         </div>
       </div>
-      <div id="bottom_title_box">
-        <div id="controls"><p>Controls</p></div>
-        <br>
-        <div id="keyboard">
-          <img src="assets/title/keyboard_mute.png" id = "keyboard_img"></img>
-        </div>
-        <div id="start">
-          <button id="startButton">
-          </button>
-        </div>
-      </div>
+      <!-- <div id="bottom_title_box">
+          <div id="controls">
+            <p>Controls</p>
+          </div>
+          <br>
+          <div id="keyboard">
+            <img src="assets/title/keyboard_mute.png" id="keyboard_img"></img>
+          </div>
+        </div> -->
     </div>
-    <div id = "empty_container"></div>
+  </div>
+  <!-- <div id = "empty_container"></div>
     <div id = 'background_container'>
       <div id ="timer_div">
         <p id='timer'>Timer: </p>
@@ -48,8 +70,7 @@
         <img src="assets/title/heart.png" id="heart2"></img>
         <img src="assets/title/heart.png" id="heart3"></img>
       </div>
-    </div>
-    <canvas id= "canvas"></canvas>
-  </body>
+    </div> -->
+  <!-- <canvas id= "canvas"></canvas> -->
 
-</html>
+</body>
