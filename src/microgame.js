@@ -169,14 +169,14 @@ var progressImg = {
     star: [
         'assets/space_balloon/space_balloon_star1.png',
         'assets/space_balloon/space_balloon_star2.png',
-        'ssets/space_balloon/space_balloon_star3.png',
+        'assets/space_balloon/space_balloon_star3.png',
         'assets/space_balloon/space_balloon_star4.png'
     ],
     ddr: [
         'assets/ddr/up.png',
         'assets/ddr/down.png',
         'assets/ddr/left.png',
-        'ssets/ddr/right.png',
+        'assets/ddr/right.png',
         'assets/ddr/victory.png',
         'assets/ddr/defeat.png',
         'assets/ddr/neutral.png'
@@ -188,9 +188,9 @@ var ddrArrows = {
     down: ['assets/ddr/down_arrow1.png', 'assets/ddr/down_arrow2.png'
     , 'assets/ddr/down_arrow3.png', 'assets/ddr/down_arrow4.png'],
     left: ['assets/ddr/left_arrow1.png', 'assets/ddr/left_arrow2.png'
-    , 'ssets/ddr/left_arrow3.png', 'assets/ddr/left_arrow4.png'],
+    , 'assets/ddr/left_arrow3.png', 'assets/ddr/left_arrow4.png'],
     right: ['assets/ddr/right_arrow1.png', 'assets/ddr/right_arrow2.png'
-    , 'assets/ddr/right_arrow3.png', 'ssets/ddr/right_arrow4.png']
+    , 'assets/ddr/right_arrow3.png', 'assets/ddr/right_arrow4.png']
 }
 
 
