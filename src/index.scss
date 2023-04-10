@@ -8,7 +8,7 @@ body {
 
 body {
     display: flex;
-    flex-direction: column;
+    // flex-direction: column;
     justify-content: center;
     align-items: center;
     width: 100%;
@@ -71,9 +71,9 @@ body {
     // border: 3px solid black;
     outline: 5px outset black;
 
-    @media(max-height: 600px) {
-        width: 57%;
-    }
+    // @media(max-height: 600px) {
+    //     width: 57%;
+    // }
 
     // @media(max-height: 00px) {
     //     width: 10%;
@@ -84,6 +84,7 @@ body {
     display: flex;
     width: 100%;
     height: 100%;
+    flex-direction: column;
 }
 
 #top-title-box {
@@ -106,6 +107,7 @@ body {
     width: 23%;
     max-width: 100%;
     padding-left: 16px;
+    // position: absolute;
 }
 
 #title {
@@ -114,6 +116,7 @@ body {
     font-size: 32px;
     width: 32%;
     max-width: 100%;
+    // position: absolute;
     // outline: 5px outset black;
 }
 
@@ -122,9 +125,14 @@ body {
     width: 20%;
     height: 90%;
     position: relative;
+    white-space: nowrap;
     // outline: 5px outset black;
 }
 
+#icons-div > a {
+    // width: 100%;
+    height: 100%;
+}
 
 .social-icon {
     // transition: top 0.2s ease-in-out;
@@ -178,7 +186,7 @@ body {
     box-shadow: 0 5px 15px 0px rgba(0, 0, 0, 0.6);
     transform: translateY(0px);
     position: relative;
-    border-radius: 20px;
+    border-radius: 10%;
 }
 
 #empty_container {
@@ -201,40 +209,40 @@ body {
     align-items: flex-end;
 }
 
-#timer_div {
-    display: flex;
-    width: 33%;
-    height: 15.5%;
-    // outline: 5px outset black;
-    font-family: 'Press Start 2P', cursive;
-    font-size: 180%;
-    justify-content: space-around;
-}
+// #timer_div {
+//     display: flex;
+//     width: 33%;
+//     height: 15.5%;
+//     // outline: 5px outset black;
+//     font-family: 'Press Start 2P', cursive;
+//     font-size: 180%;
+//     justify-content: space-around;
+// }
 
-#timer_bar {
-    margin-top: 8%;
-    height: 50%;
-    width: 75%;
-}
+// #timer_bar {
+//     margin-top: 8%;
+//     height: 50%;
+//     width: 75%;
+// }
 
-#hello_world {
-    width: 33%;
-    text-align: center;
-    font-family: 'Press Start 2P', cursive;
-    outline: 5px outset black;
-    font-size: 130%;
-    background: yellow;
-}
+// #hello_world {
+//     width: 33%;
+//     text-align: center;
+//     font-family: 'Press Start 2P', cursive;
+//     outline: 5px outset black;
+//     font-size: 130%;
+//     background: yellow;
+// }
 
-#lives {
-    display: flex;
-    justify-content: space-evenly;
-    align-items: center;
-    width: 27%;
-    height: 12%;
-    margin-bottom: 0.09%;
-    // outline: 5px outset black;
-}
+// #lives {
+//     display: flex;
+//     justify-content: space-evenly;
+//     align-items: center;
+//     width: 27%;
+//     height: 12%;
+//     margin-bottom: 0.09%;
+//     // outline: 5px outset black;
+// }
 
 
 
