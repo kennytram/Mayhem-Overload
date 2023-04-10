@@ -13,7 +13,7 @@ canvas.height = gameContainer.offsetHeight;
 
 let isMuted = false;
 var menuAudio = new Audio('assets/title/main_menu.mp3');
-// menuAudio.play();
+menuAudio.play();
 menuAudio.volume = 0.3;
 
 key('m', () => {
