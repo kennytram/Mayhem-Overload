@@ -169,3 +169,41 @@ for (let i = 0; i < images.length; i++) {
         console.log(`${img.src} has finished loading`);
     };
 }
+
+const audioFiles = [
+    'assets/title/main_menu.mp3',
+    'assets/victory.mp3',
+    'assets/loser.mp3',
+    'assets/ddr/dance_select.mp3',
+    'assets/blow/blow.ogg',
+    'assets/space_balloon/flap.mp3',
+    'assets/space_balloon/balloon_burst.mp3',
+    'assets/gameover.mp3',
+    'assets/correct.mp3',
+    'assets/wrong.mp3',
+    'assets/space_balloon/space_balloon.mp3',
+    'assets/blow/thar_he_blows.mp3',
+    'assets/ddr/dance.mp3',
+]
+
+let loadedAudioCount = 0;
+
+audioFiles.forEach((audioFile) => {
+    const audio = new Audio();
+    audio.src = audioFile;
+
+    audio.addEventListener('canplaythrough', () => {
+        loadedAudioCount++;
+
+        // calculate the percentage of loaded audio files
+        const percentLoaded = Math.round((loadedAudioCount / audioFiles.length) * 100);
+
+        // update the loading bar with the new percentage
+        // ...
+
+        if (loadedAudioCount === audioFiles.length) {
+            // all audio files have finished loading
+            // ...
+        }
+    });
+});

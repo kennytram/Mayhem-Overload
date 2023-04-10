@@ -388,24 +388,24 @@ const MICROGAMES = {
 
 let TIMERBAR = [];
 for(let i = 1; i < 10; i++) {
-    TIMERBAR.push(`https://kennytram.github.io/Mayhem-Overload/assets/timer${i}.png`);
+    TIMERBAR.push(`assets/timer${i}.png`);
 }
 
 let SURVIVEBAR = [];
 for(let i = 1; i < 7; i++) {
-    SURVIVEBAR.push(`https://kennytram.github.io/Mayhem-Overload/assets/survival_timer${i}.png`);
+    SURVIVEBAR.push(`assets/survival_timer${i}.png`);
 }
 
 
-var victoryAudio = new Audio('https://kennytram.github.io/Mayhem-Overload/assets/victory.mp3');
-var blowAudio  = new Audio('https://kennytram.github.io/Mayhem-Overload/assets/blow/blow.ogg');
-var spaceBalloonAudio = new Audio('https://kennytram.github.io/Mayhem-Overload/assets/space_balloon/flap.mp3')
-var spaceDeathAudio = new Audio('https://kennytram.github.io/Mayhem-Overload/assets/space_balloon/balloon_burst.mp3');
-var gameoverAudio = new Audio('https://kennytram.github.io/Mayhem-Overload/assets/gameover.mp3')
-var correctAudio = new Audio('https://kennytram.github.io/Mayhem-Overload/assets/correct.mp3');
-var wrongAudio = new Audio('https://kennytram.github.io/Mayhem-Overload/assets/wrong.mp3');
-var selectAudio = new Audio('https://kennytram.github.io/Mayhem-Overload/assets/ddr/dance_select.mp3');
-var loserAudio = new Audio('https://kennytram.github.io/Mayhem-Overload/assets/loser.mp3');
+var victoryAudio = new Audio('assets/victory.mp3');
+var blowAudio  = new Audio('assets/blow/blow.ogg');
+var spaceBalloonAudio = new Audio('assets/space_balloon/flap.mp3')
+var spaceDeathAudio = new Audio('assets/space_balloon/balloon_burst.mp3');
+var gameoverAudio = new Audio('assets/gameover.mp3')
+var correctAudio = new Audio('assets/correct.mp3');
+var wrongAudio = new Audio('assets/wrong.mp3');
+var selectAudio = new Audio('assets/ddr/dance_select.mp3');
+var loserAudio = new Audio('assets/loser.mp3');
 
 const audioArr = [victoryAudio, blowAudio, spaceBalloonAudio, spaceDeathAudio
     , gameoverAudio, correctAudio, wrongAudio, selectAudio, loserAudio];
