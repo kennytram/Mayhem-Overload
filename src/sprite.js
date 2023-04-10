@@ -24,7 +24,7 @@ class Sprite {
             
             
             CONSTANTS.FLAP_SPEED = 5;
-            CONSTANTS.TERMINAL_VEL = 5;
+            CONSTANTS.TERMINAL_VEL = 3;
             CONSTANTS.GRAVITY = 0.2;
         }
         else if(this.posType === 'bottomSide') {
