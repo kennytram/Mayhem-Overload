@@ -195,7 +195,7 @@ var ddrArrows = {
 
 
 let CONSTANTS = {
-    GRAVITY:  1,
+    GRAVITY:  0.2,
     FLAP_SPEED:  5,
     TERMINAL_VEL:  5,
     BAR_SPEED: 5

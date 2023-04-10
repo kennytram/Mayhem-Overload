@@ -17,21 +17,10 @@
   <title>Mayhem Overload</title>
 </head>
 
-<body>
-
-</body>
-
 
 </html>
 
 <body>
-  <!-- <div id="score_div"><h2 id="score">Score: 0</h2></div> -->
-  <!-- <img id="nintendo-switch-bg" src="assets/title/nintendo-switch-bg.png"> -->
-  <!-- <div id="score_div">Score: 0</div> -->
-  <!-- <div id="empty_icon_div"></div> -->
-  <!--  -->
-  <!-- <div id = "empty_container"></div>
-    <div id = 'background_container'> -->
   <div id="game-container">
     <div id="top-title-box">
       <div id="score">
@@ -68,16 +57,17 @@
 
     <div id="bottom-box">
       <div id="start">
-        <button id="startButton"></button>
+        <img src="assets/title/start.png" id="startButton" onmouseover="hoverStart()" onmousedown="clickStart()"
+          onmouseup="releaseStart()"></img>
       </div>
       <div id="timer_div">
         <p id='timer'>Timer: </p>
         <img src="assets/survival_timer1.png" id="timer_bar"></img>
-        
+
       </div>
       <div id="creator">created by Kenny Tram</div>
     </div>
     <canvas id="canvas"></canvas>
-    
+
   </div>
 </body>

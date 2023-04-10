@@ -5,6 +5,8 @@ const gameContainer = document.querySelector("#game-container");
 const timer = document.querySelector("#timer_div");
 const score = document.querySelector("#score");
 const lives = document.querySelector("#lives");
+const right_div = document.querySelector(".right.icons-div");
+const github_icon = document.querySelector("#github-icon");
 canvas.width = gameContainer.offsetWidth;
 canvas.height = gameContainer.offsetHeight;
 
@@ -23,13 +25,14 @@ key('m', () => {
 key('q', () => {
     window.location.reload();
 });
-key('space', () => {
+key('enter', () => {
     startBtn.disabled = true;
     timer.style.visibility = "visible";
     lives.style.display = "flex";
     score.style.display = "flex";
     func();
-    key.unbind('space');
+
+    key.unbind('enter');
 });
 
 const startBtn = document.querySelector("#startButton");
@@ -37,6 +40,9 @@ const func = function () {
     timer.style.visibility = "visible";
     lives.style.display = "flex";
     score.style.display = "flex";
+    right_div.style.zIndex = 20;
+    github_icon.style.display = "none";
+
     menuAudio.pause();
     menuAudio = null;
     clearInterval(dialogueTimeout);
@@ -77,3 +83,40 @@ let dialogueTimeout = setInterval(() => {
     document.getElementById('desc-text').innerHTML = dialogues[randIdx];
     count++;
 }, count * 4000);
+
+function hoverStart() {
+    document.getElementById("startButton").src = "assets/title/start_hovered.png";
+}
+
+function clickStart() {
+    document.getElementById("startButton").src = "assets/title/start_clicked.png";
+}
+
+function releaseStart() {
+    document.getElementById("startButton").src = "assets/title/start.png";
+}
+
+
+const imgages = [
+    "assets/title/heart.png",
+    "assets/title/github-square.png",
+    "assets/title/keyboard_hover.png",
+    "assets/title/keyboard_mute.png",
+    "assets/title/link-square.png",
+    "assets/survival-timer-1.png",
+    "assets/survival-timer-2.png",
+    "assets/survival-timer-3.png",
+    "assets/survival-timer-4.png",
+    "assets/survival-timer-5.png",
+    "assets/survival-timer-6.png",
+    "assets/timer1.png",
+    "assets/timer2.png",
+    "assets/timer3.png",
+    "assets/timer4.png",
+    "assets/timer5.png",
+    "assets/timer6.png",
+    "assets/timer7.png",
+    "assets/timer8.png",
+    "assets/timer9.png",
+
+]

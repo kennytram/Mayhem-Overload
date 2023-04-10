@@ -69,7 +69,8 @@ body {
     z-index: 1;
     background-color: #ffffcc;
     // border: 3px solid black;
-    outline: 5px outset black;
+    outline: 5px solid black;
+    border: 2px solid black;
 
     // @media(max-height: 600px) {
     //     width: 57%;
@@ -184,6 +185,7 @@ body {
     position: relative;
     margin-left: 40px;
     max-width: 100%;
+    z-index: 1;
 }
 
 #linkedin-icon {
@@ -198,8 +200,12 @@ body {
     max-width: 100%;
 }
 
+.right.icons-div {
+    z-index: 20;
+}
+
 #lives {
-    justify-content: space-evenly;
+    justify-content: flex-end;
     align-items: center;
     max-width: 100%;
     max-height: 100%;
@@ -207,7 +213,7 @@ body {
     position: absolute;
     // outline: 5px outset black;
     top: -6px;
-    z-index: 2;
+    z-index: 20;
 
     display: none;
 }
@@ -256,10 +262,12 @@ body {
 
 #timer_div {
     display: flex;
+    // display: none;
     // outline: 5px outset black;
     font-family: 'Press Start 2P', cursive;
     font-size: 24px;
     visibility: hidden;
+    z-index: 30;
 }
 
 #timer {
@@ -267,6 +275,8 @@ body {
     justify-content: flex-end;
     align-items: center;
     flex-direction: column;
+    z-index: 30;
+    color: #f6f6f6;
 }
 
 #timer_bar {
@@ -274,6 +284,7 @@ body {
     height: 50%;
     width: 25%;
     text-align: center;
+    z-index: 30;
 }
 
 // #hello_world {
@@ -392,11 +403,13 @@ body {
 
 #startButton {
     // outline: 5px outset black;
-    background-image: url('https://kennytram.github.io/Mayhem-Overload/assets/title/start.png');
+    // background-image: url('https://kennytram.github.io/Mayhem-Overload/assets/title/start.png');
     background-color: transparent;
     background-repeat: no-repeat;
-    min-width: 400px;
-    min-height: 200px;
+    // min-width: 400px;
+    // min-height: 200px;
+    width: 350px;
+    height: 150px;
     position: absolute;
     /* adjust width to fit your image */
     /* adjust height to fit your image */
@@ -404,23 +417,30 @@ body {
     top: 80px;
     left: 300px;
     z-index: 1;
+    
+    @media (max-width: 960px) {
+        left: calc(65% - 300px);
+        top: 80px;
+    }
 }
 
 #startButton:hover {
-    background-image: url('https://kennytram.github.io/Mayhem-Overload/assets/title/start_hovered.png');
+    // background-image: url('https://kennytram.github.io/Mayhem-Overload/assets/title/start_hovered.png');
     background-color: transparent;
     cursor: pointer;
     /* show pointer cursor on hover */
 }
 
 #startButton:active {
-    background-image: url('https://kennytram.github.io/Mayhem-Overload/assets/title/start_clicked.png');
+    // background-image: url('https://kennytram.github.io/Mayhem-Overload/assets/title/start_clicked.png');
     background-color: transparent;
 }
 
 #canvas {
     position: absolute;
     z-index: 0;
+    // outline: 8px solid black;
+    margin: 0;
 }
 
 #bottom-box{
