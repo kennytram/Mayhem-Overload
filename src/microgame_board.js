@@ -9,7 +9,7 @@ class MicrogameBoard {
         // this.spriteCtx = document.getElementById('sprite_canvas').getContext('2d');
         this.ctx = document.getElementById('canvas').getContext('2d')
         this.scoreEle = document.getElementById('score');
-        this.dialogue = document.getElementById('dialogue');
+        this.dialogue = document.getElementById('desc-text');
         this.timerBar = document.getElementById('timer_bar');
         // this.size = (Math.floor(this.stageCtx.canvas.width/100), Math.floor(this.stageCtx.canvas.height/100));
         this.currTime = 10;

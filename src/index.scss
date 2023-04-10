@@ -35,7 +35,7 @@ body {
     //     background-size: auto;
     //     overflow: hidden;
     // }
-
+    font-family: 'Press Start 2P', cursive;
     background-color: skyblue;
 }
 
@@ -78,12 +78,6 @@ body {
     // @media(max-height: 00px) {
     //     width: 10%;
     // }
-}
-
-#game-wrapper {
-    display: flex;
-    width: 100%;
-    height: 100%;
     flex-direction: column;
 }
 
@@ -93,11 +87,11 @@ body {
     // align-items: center;
     position: relative;
     margin-top: 20px;
-    
+
     justify-content: space-between;
 }
 
-#score-div {
+#score {
     // text-align: center;
     // outline: 5px outset black;
     font-family: 'Press Start 2P', cursive;
@@ -107,7 +101,9 @@ body {
     width: 20%;
     max-width: 100%;
     padding-left: 16px;
-    z-index: 3;
+    z-index: 30;
+    display: none;
+    // visibility: hidden;
     // position: absolute;
 }
 
@@ -123,7 +119,13 @@ body {
     // outline: 4px solid #1e1e1e;
 }
 
-#icons-div {
+.left.icons-div {
+    padding-left: 60px;
+    width: 13%;
+    max-width: 100%;
+}
+
+.icons-div {
     display: flex;
     width: 20%;
     height: 90%;
@@ -133,7 +135,7 @@ body {
     // outline: 5px outset black;
 }
 
-#icons-div > a {
+#icons-div>a {
     // width: 100%;
     height: 100%;
 }
@@ -142,7 +144,7 @@ body {
     // transition: top 0.2s ease-in-out;
     // top: 0;
     position: absolute;
-    width: 70px;
+    width: 80px;
     max-width: 100%;
     margin-top: 10px;
     // margin-left: 10px;
@@ -207,17 +209,17 @@ body {
     top: -6px;
     z-index: 2;
 
-    display:none;
+    display: none;
 }
 
-#lives > img {
+#lives>img {
     width: 40px;
     height: 40px;
     margin-right: 4px;
     max-width: 100%;
     max-height: 100%;
     padding-left: 15px;
-    
+
 }
 
 #empty_container {
@@ -242,29 +244,37 @@ body {
 
 #desc-text {
     padding-top: 42px;
-    width: 100%;
-    height: 10%;
-    text-align: center;
+    width: 80%;
+    height: 20%;
     font-family: 'Press Start 2P', cursive;
     // outline: 5px outset black;
-    font-size: 130%;
+    font-size: 20px;
+    text-align: center;
+    align-self: center;
+    line-height: 44px;
 }
 
-// #timer_div {
-//     display: flex;
-//     width: 33%;
-//     height: 15.5%;
-//     // outline: 5px outset black;
-//     font-family: 'Press Start 2P', cursive;
-//     font-size: 180%;
-//     justify-content: space-around;
-// }
+#timer_div {
+    display: flex;
+    // outline: 5px outset black;
+    font-family: 'Press Start 2P', cursive;
+    font-size: 24px;
+    visibility: hidden;
+}
 
-// #timer_bar {
-//     margin-top: 8%;
-//     height: 50%;
-//     width: 75%;
-// }
+#timer {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    flex-direction: column;
+}
+
+#timer_bar {
+    margin-top: 8%;
+    height: 50%;
+    width: 25%;
+    text-align: center;
+}
 
 // #hello_world {
 //     width: 33%;
@@ -274,12 +284,6 @@ body {
 //     font-size: 130%;
 //     background: yellow;
 // }
-
-
-
-
-
-
 
 #empty_top_div {
     width: 24%;
@@ -298,7 +302,7 @@ body {
 #bottom_title_box {
     display: flex;
     width: 100%;
-    height: 75%;
+    height: 40%;
     // outline: 5px outset black;
     justify-content: center;
     flex-wrap: wrap;
@@ -321,6 +325,8 @@ body {
     // outline: 5px outset black;
 }
 
+
+
 @keyframes change-color {
     25% {
         color: #00A4BD;
@@ -341,6 +347,7 @@ body {
 
 #keyboard {
     display: flex;
+    justify-content: center;
     width: 100%;
     height: 60%;
     // animation: animate-images 3s linear infinite;
@@ -348,37 +355,39 @@ body {
     // outline: 5px outset black;
 }
 
-#keyboard_img {
-    // width: 200px;
-    max-width: 100%;   
-    // height: 100px;
-    // animation-name: animate-images;
-    // animation-duration: 4s;
-    // animation-delay: 4s;
-    // animation-iteration-count: infinite;
-
-
+.keyboard_img {
+    position: absolute; // make sure the images are positioned on top of each other
+    transition: opacity 1s ease-in-out;
+    opacity: 1; // start with the first image visible
 }
 
-// #keyboard_press_img {
-//     visibility: hidden;
-//     position: absolute;
+.keyboard_img:first-child {
+    opacity: 0; // hide the second image
+    animation: switch-images 3s ease-in-out infinite;
+}
 
-// }
+@keyframes switch-images {
+    0% {
+        opacity: 1;
+    }
 
-// @keyframes animate-images {
-//     0% {
-//       visibility: hidden;
-//     }
-//     100% {
-//       visibility: visible;
-//     }
-//   }
+    50% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
 
 #start {
-    width: 40%;
-    height: 40%;
+    width: 100%;
+    height: 200px;
     display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    
 }
 
 #startButton {
@@ -386,11 +395,15 @@ body {
     background-image: url('https://kennytram.github.io/Mayhem-Overload/assets/title/start.png');
     background-color: transparent;
     background-repeat: no-repeat;
-    width: 100%;
+    min-width: 400px;
+    min-height: 200px;
+    position: absolute;
     /* adjust width to fit your image */
-    height: 100%;
     /* adjust height to fit your image */
     border: none;
+    top: 80px;
+    left: 300px;
+    z-index: 1;
 }
 
 #startButton:hover {
@@ -408,4 +421,20 @@ body {
 #canvas {
     position: absolute;
     z-index: 0;
+}
+
+#bottom-box{
+    position: relative;
+}
+
+#creator {
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 16px;
+    width: 100%;
+    position: absolute;
+    bottom: 30px;
+    z-index: 2;
+    font-family: 'Press Start 2P', cursive;
 }
