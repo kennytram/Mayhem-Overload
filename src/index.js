@@ -39,7 +39,6 @@ const func = function () {
     score.style.display = "flex";
     right_div.style.zIndex = 22;
     github_icon.style.display = "none";
-    tooltip.style.display = "none";
 
     menuAudio.pause();
     menuAudio = null;

@@ -466,7 +466,6 @@ body {
 }
 
 #tooltip {
-    display: flex;
     position: absolute;
     width: 350px;
     height: 80px;
@@ -482,6 +481,7 @@ body {
     font-size: 20px;
     text-align: center;
     margin-top: 20px;
+    display: none;
 }
 
 #tooltip-title {

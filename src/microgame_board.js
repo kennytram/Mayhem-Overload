@@ -30,6 +30,7 @@ class MicrogameBoard {
     //Status: COMPLETED
     play() {
         this.microgame = this.randomizeMicrogame();
+        this.dialogue.style.display = "flex";
         if(this.microgame) {
             
             this.microgame.reset(this.ctx);
@@ -69,7 +70,7 @@ class MicrogameBoard {
             if(!this.currMicrogameFinished && this.microgame.won === true || this.restart === true ||
                 this.microgame.isGameOver && this.lives > 1) 
                 {
-                    this.dialogue.style.display = "flex";
+                    
                     clearInterval(this.timerTimeout);
                     if(this.microgame.timeOutFunc) clearTimeout(this.microgame.timeOutFunc);
                     
