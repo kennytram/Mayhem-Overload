@@ -97,18 +97,18 @@ function releaseStart() {
 }
 
 
-const imgages = [
+const images = [
     "assets/title/heart.png",
     "assets/title/github-square.png",
     "assets/title/keyboard_hover.png",
     "assets/title/keyboard_mute.png",
     "assets/title/link-square.png",
-    "assets/survival-timer-1.png",
-    "assets/survival-timer-2.png",
-    "assets/survival-timer-3.png",
-    "assets/survival-timer-4.png",
-    "assets/survival-timer-5.png",
-    "assets/survival-timer-6.png",
+    "assets/survival_timer1.png",
+    "assets/survival_timer2.png",
+    "assets/survival_timer3.png",
+    "assets/survival_timer4.png",
+    "assets/survival_timer5.png",
+    "assets/survival_timer6.png",
     "assets/timer1.png",
     "assets/timer2.png",
     "assets/timer3.png",
@@ -152,7 +152,7 @@ const imgages = [
     "assets/space_balloon/flap_default.png",
     "assets/space_balloon/flap_down.png",
     "assets/space_balloon/flap_up.png",
-    "assets/space_balloon/space_balloon_background.png",
+    "assets/space_balloon/space_balloon_background_og.png",
     "assets/space_balloon/space_balloon_death.png",
     "assets/space_balloon/space_balloon_star1.png",
     "assets/space_balloon/space_balloon_star2.png",
@@ -161,9 +161,11 @@ const imgages = [
     "assets/space_balloon/space_balloon_star5.png",
 ]
 
-for (let i = 0; i < imgages.length; i++) {
+for (let i = 0; i < images.length; i++) {
     const img = new Image();
-    img.src = imgages[i];
+    img.src = images[i];
 
-    img.onload = function() {};
+    img.onload = function () {
+        console.log(`${img.src} has finished loading`);
+    };
 }
