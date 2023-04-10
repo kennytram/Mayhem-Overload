@@ -349,6 +349,12 @@ body {
   position: relative;
 }
 
+#tooltip-container {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+}
+
 #creator {
   display: flex;
   justify-content: center;
@@ -362,7 +368,8 @@ body {
 }
 
 #tooltip {
-  position: absolute;
+  display: flex;
+  position: fixed;
   width: 350px;
   height: 80px;
   align-items: center;
@@ -376,8 +383,6 @@ body {
   font-family: "Press Start 2P", cursive;
   font-size: 20px;
   text-align: center;
-  margin-top: 20px;
-  display: none;
 }
 
 #tooltip-title {

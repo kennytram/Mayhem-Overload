@@ -381,7 +381,7 @@ const MICROGAMES = {
     spaceBalloon: new Microgame(STAGES['spaceBalloon']
     , PLAYERS['spaceBalloon']
     , OBSTACLES['spaceBalloon'], new Audio("assets/space_balloon/space_balloon.mp3")
-    , "survive", KEYS["spaceBalloon"], "Spacebar to Flap"),
+    , "survive", KEYS["spaceBalloon"], "Spacebar to Flap and Move to Survive"),
     ddr: new Microgame(STAGES['ddr']
     , PLAYERS['ddr']
     , OBSTACLES['ddr'], new Audio("assets/ddr/dance.mp3")
