@@ -335,7 +335,7 @@ class MicrogameBoard {
 
 const STAGES = {
     blow: new Stage("assets/blow/blow.png", false),
-    spaceBalloon: new Stage('assets/space_balloon/space_balloon_background.png', true),
+    spaceBalloon: new Stage('assets/space_balloon/space_balloon_background_og.png', true),
     ddr: new Stage('assets/ddr/dfloor.png', false)
 };
 
