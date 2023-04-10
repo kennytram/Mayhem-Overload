@@ -11,6 +11,7 @@ class MicrogameBoard {
         this.scoreEle = document.getElementById('score');
         this.dialogue = document.getElementById('desc-text');
         this.timerBar = document.getElementById('timer_bar');
+        this.dialogue = document.getElementById('tooltip');
         // this.size = (Math.floor(this.stageCtx.canvas.width/100), Math.floor(this.stageCtx.canvas.height/100));
         this.currTime = 10;
         this.maxTime = 10;
@@ -68,6 +69,7 @@ class MicrogameBoard {
             if(!this.currMicrogameFinished && this.microgame.won === true || this.restart === true ||
                 this.microgame.isGameOver && this.lives > 1) 
                 {
+                    this.dialogue.style.display = "flex";
                     clearInterval(this.timerTimeout);
                     if(this.microgame.timeOutFunc) clearTimeout(this.microgame.timeOutFunc);
                     

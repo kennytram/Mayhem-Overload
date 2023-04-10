@@ -7,6 +7,7 @@ const score = document.querySelector("#score");
 const lives = document.querySelector("#lives");
 const right_div = document.querySelector(".right.icons-div");
 const github_icon = document.querySelector("#github-icon");
+const tooltip = document.querySelector("#tooltip");
 canvas.width = gameContainer.offsetWidth;
 canvas.height = gameContainer.offsetHeight;
 
@@ -38,6 +39,7 @@ const func = function () {
     score.style.display = "flex";
     right_div.style.zIndex = 22;
     github_icon.style.display = "none";
+    tooltip.style.display = "none";
 
     menuAudio.pause();
     menuAudio = null;
@@ -162,7 +164,7 @@ for (let i = 0; i < images.length; i++) {
     img.src = images[i];
 
     img.onload = function () {
-        console.log(`${img.src} has finished loading`);
+        // console.log(`${img.src} has finished loading`);
     };
 }
 
@@ -200,7 +202,7 @@ audioFiles.forEach((audioFile) => {
         if (loadedAudioCount === audioFiles.length) {
             // all audio files have finished loading
             // ...
-            console.log(`all audio files have finished loading`);
+            // console.log(`all audio files have finished loading`);
         }
     });
 });

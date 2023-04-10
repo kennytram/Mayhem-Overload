@@ -20,7 +20,7 @@ class Sprite {
                 this.sprite = 'assets/space_balloon/flap_default.png'
             }
             this.xPos = Math.floor(ctx.canvas.width - ctx.canvas.width/3);
-            this.yPos = Math.floor(ctx.canvas.height/4);
+            this.yPos = Math.floor(ctx.canvas.height/8);
             
             
             CONSTANTS.FLAP_SPEED = 5;
