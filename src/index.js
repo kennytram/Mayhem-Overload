@@ -26,10 +26,6 @@ key('q', () => {
     window.location.reload();
 });
 key('enter', () => {
-    startBtn.disabled = true;
-    timer.style.visibility = "visible";
-    lives.style.display = "flex";
-    score.style.display = "flex";
     func();
 
     key.unbind('enter');
@@ -40,7 +36,7 @@ const func = function () {
     timer.style.visibility = "visible";
     lives.style.display = "flex";
     score.style.display = "flex";
-    right_div.style.zIndex = 20;
+    right_div.style.zIndex = 22;
     github_icon.style.display = "none";
 
     menuAudio.pause();
@@ -204,6 +200,7 @@ audioFiles.forEach((audioFile) => {
         if (loadedAudioCount === audioFiles.length) {
             // all audio files have finished loading
             // ...
+            console.log(`all audio files have finished loading`);
         }
     });
 });

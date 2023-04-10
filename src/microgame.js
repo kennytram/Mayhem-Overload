@@ -6,7 +6,7 @@ class Microgame {
         this.obstacles = obstacles || [];
         this.bgm = bgm;
         this.objective = objective;
-        if(this.objective==='ddr') this.bgm.volume = 0.4;
+        if(this.objective==='ddr') this.bgm.volume = 0.5;
         this.won = false;
         this.isGameOver = false;
         this.controlSetting = controlSetting;

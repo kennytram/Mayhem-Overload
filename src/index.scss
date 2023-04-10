@@ -41,15 +41,6 @@ body {
 
 @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
 
-// @font-face {
-//     font-family: 'customFont';
-//     src: url('https://kennytram.github.io/Mayhem-Overload/assets/gomarice_atama_simple.TTF') format('truetype')
-// }
-
-// @font-face {
-//     font-family: 'customFont2';
-//     src: url('https://kennytram.github.io/Mayhem-Overload/assets/impact.TTF') format('truetype')
-// }
 
 // title page
 
@@ -201,7 +192,7 @@ body {
 }
 
 .right.icons-div {
-    z-index: 20;
+    z-index: 22;
 }
 
 #lives {
@@ -213,9 +204,9 @@ body {
     position: absolute;
     // outline: 5px outset black;
     top: -6px;
-    z-index: 20;
+    z-index: 22
 
-    display: none;
+    display: flex;
 }
 
 #lives>img {
@@ -226,6 +217,10 @@ body {
     max-height: 100%;
     padding-left: 15px;
 
+}
+
+.heart {
+    z-index: 22;
 }
 
 #empty_container {

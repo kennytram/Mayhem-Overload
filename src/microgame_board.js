@@ -328,7 +328,7 @@ class MicrogameBoard {
                 bindKeys.push('w','s','a','d','up','down','left','right');
                 break;
             default:
-                console.log("keybind error");
+                break;
         }
     }
 }
