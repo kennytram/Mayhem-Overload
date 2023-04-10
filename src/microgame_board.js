@@ -35,7 +35,7 @@ class MicrogameBoard {
             unbindKeys(); //in case if user refreshes
             this.bindKeyHandlers(this.microgame);
             if(this.microgame.objective === 'survive'){
-                this.timerBar.src = 'https://kennytram.github.io/Mayhem-Overload/assets/survival_timer1.png';
+                this.timerBar.src = "assets/survival-timer-1.png";
             }
             this.resetTimer();
             this.startTimer(); //start Timer
@@ -185,7 +185,6 @@ class MicrogameBoard {
             that.currTime--;
             if(that.currTime === 0) {
                 if(this.microgame.objective != 'survive'){
-                    //only for non-survival
                     that.timerBar.src = TIMERBAR.at(-1); 
                     that.microgame.isGameOver = true;
                 }
@@ -198,7 +197,6 @@ class MicrogameBoard {
 
     resetTimer() {
         if(this.microgame.objective === 'survive') {
-            console.log('true');
             this.currTime = 5;
             this.timerBar.src = SURVIVEBAR[0];
         }
@@ -336,61 +334,54 @@ class MicrogameBoard {
 }
 
 const STAGES = {
-    test: new Stage('https://kennytram.github.io/Mayhem-Overload/assets/windrise-background.png', false),
-    blow: new Stage('https://kennytram.github.io/Mayhem-Overload/assets/blow/blow.png', false),
-    spaceBalloon: new Stage('https://kennytram.github.io/Mayhem-Overload/assets/space_balloon/space_balloon_background_og.png', true),
-    ddr: new Stage('https://kennytram.github.io/Mayhem-Overload/assets/ddr/dfloor.png', false)
+    blow: new Stage("assets/blow/blow.png", false),
+    spaceBalloon: new Stage('assets/space_balloon/space_balloon_background.png', true),
+    ddr: new Stage('assets/ddr/dfloor.png', false)
 };
 
 const PLAYERS = {
-    test: new Sprite(null, 'random', ['player']),
-    blow: new Sprite('https://kennytram.github.io/Mayhem-Overload/assets/blow/blow1.png', 'wallRight', ['player']),
-    spaceBalloon: new Sprite('https://kennytram.github.io/Mayhem-Overload/assets/space_balloon/flap_default.png','rightSide',['player']),
-    ddr: new Sprite('https://kennytram.github.io/Mayhem-Overload/assets/ddr/neutral.png', 'bottomSide', ['player'] )
+    blow: new Sprite('assets/blow/blow1.png', 'wallRight', ['player']),
+    spaceBalloon: new Sprite('assets/space_balloon/flap_default.png','rightSide',['player']),
+    ddr: new Sprite('assets/ddr/dfloor.png', 'bottomSide', ['player'] )
 };
 
 const OBSTACLES = {
-    test : [],
     blow : [],
     spaceBalloon : [
-        new Sprite('https://kennytram.github.io/Mayhem-Overload/assets/space_balloon/space_balloon_star1.png', 'random', ['enemy', 'movingRight']),
-        new Sprite('https://kennytram.github.io/Mayhem-Overload/assets/space_balloon/space_balloon_star2.png', 'random', ['enemy', 'movingRight']),
-        new Sprite('https://kennytram.github.io/Mayhem-Overload/assets/space_balloon/space_balloon_star3.png', 'random', ['enemy', 'movingRight']),
-        new Sprite('https://kennytram.github.io/Mayhem-Overload/assets/space_balloon/space_balloon_star4.png', 'random', ['enemy', 'movingRight']),
-        new Sprite('https://kennytram.github.io/Mayhem-Overload/assets/space_balloon/space_balloon_star1.png', 'random', ['enemy', 'movingRight']),
-        new Sprite('https://kennytram.github.io/Mayhem-Overload/assets/space_balloon/space_balloon_star2.png', 'random', ['enemy', 'movingRight']),
-        new Sprite('https://kennytram.github.io/Mayhem-Overload/assets/space_balloon/space_balloon_star3.png', 'random', ['enemy', 'movingRight']),
-        new Sprite('https://kennytram.github.io/Mayhem-Overload/assets/space_balloon/space_balloon_star4.png', 'random', ['enemy', 'movingRight']),
-        new Sprite('https://kennytram.github.io/Mayhem-Overload/assets/space_balloon/space_balloon_star1.png', 'random', ['enemy', 'movingRight']),
-        new Sprite('https://kennytram.github.io/Mayhem-Overload/assets/space_balloon/space_balloon_star2.png', 'random', ['enemy', 'movingRight']),
+        new Sprite('assets/space_balloon/space_balloon_star1.png', 'random', ['enemy', 'movingRight']),
+        new Sprite('assets/space_balloon/space_balloon_star2.png', 'random', ['enemy', 'movingRight']),
+        new Sprite('assets/space_balloon/space_balloon_star3.png', 'random', ['enemy', 'movingRight']),
+        new Sprite('assets/space_balloon/space_balloon_star4.png', 'random', ['enemy', 'movingRight']),
+        new Sprite('assets/space_balloon/space_balloon_star1.png', 'random', ['enemy', 'movingRight']),
+        new Sprite('assets/space_balloon/space_balloon_star2.png', 'random', ['enemy', 'movingRight']),
+        new Sprite('assets/space_balloon/space_balloon_star3.png', 'random', ['enemy', 'movingRight']),
+        new Sprite('assets/space_balloon/space_balloon_star4.png', 'random', ['enemy', 'movingRight']),
+        new Sprite('assets/space_balloon/space_balloon_star1.png', 'random', ['enemy', 'movingRight']),
+        new Sprite('assets/space_balloon/space_balloon_star2.png', 'random', ['enemy', 'movingRight']),
     ],
     ddr: [
-        new Sprite('https://kennytram.github.io/Mayhem-Overload/assets/ddr/up_arrow1.png', 'topLeft', ['friendly']),
+        new Sprite('assets/ddr/up_arrow1.png', 'topLeft', ['friendly']),
     ]
 };
 
 const KEYS = {
-    test : "test",
     blow : "spaceButtonMash",
     spaceBalloon : "flap",
     ddr: "directions"
 };
 
 const MICROGAMES = {
-    // test: new Microgame(STAGES["test"]
-    // , PLAYERS['test']
-    // , OBSTACLES['test'], null, null, KEYS["test"]),
     blow: new Microgame(STAGES['blow']
     , PLAYERS['blow']
-    , OBSTACLES['blow'], new Audio("https://kennytram.github.io/Mayhem-Overload/assets/blow/thar_he_blows.mp3")
+    , OBSTACLES['blow'], new Audio("assets/blow/thar_he_blows.mp3")
     , "blowBar", KEYS["blow"], "Use Spacebar to Blow"),
     spaceBalloon: new Microgame(STAGES['spaceBalloon']
     , PLAYERS['spaceBalloon']
-    , OBSTACLES['spaceBalloon'], new Audio("https://kennytram.github.io/Mayhem-Overload/assets/space_balloon/space_balloon.mp3")
+    , OBSTACLES['spaceBalloon'], new Audio("assets/space_balloon/space_balloon.mp3")
     , "survive", KEYS["spaceBalloon"], "Spacebar to Flap"),
     ddr: new Microgame(STAGES['ddr']
     , PLAYERS['ddr']
-    , OBSTACLES['ddr'], new Audio("https://kennytram.github.io/Mayhem-Overload/assets/ddr/dance.mp3")
+    , OBSTACLES['ddr'], new Audio("assets/ddr/dance.mp3")
     , "ddr", KEYS['ddr'], "Follow the Arrows")
 
 };

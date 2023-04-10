@@ -118,5 +118,52 @@ const imgages = [
     "assets/timer7.png",
     "assets/timer8.png",
     "assets/timer9.png",
-
+    "assets/blow/blow.png",
+    "assets/blow/blow1.png",
+    "assets/blow/blow2.png",
+    "assets/blow/blow3.png",
+    "assets/blow/blow4.png",
+    "assets/blow/blow5.png",
+    "assets/blow/blow6.png",
+    "assets/ddr/defeat.png",
+    "assets/ddr/dfloor.png",
+    "assets/ddr/down_arrow1.png",
+    "assets/ddr/down_arrow2.png",
+    "assets/ddr/down_arrow3.png",
+    "assets/ddr/down_arrow4.png",
+    "assets/ddr/down.png",
+    "assets/ddr/left_arrow1.png",
+    "assets/ddr/left_arrow2.png",
+    "assets/ddr/left_arrow3.png",
+    "assets/ddr/left_arrow4.png",
+    "assets/ddr/left.png",
+    "assets/ddr/neutral.png",
+    "assets/ddr/right_arrow1.png",
+    "assets/ddr/right_arrow2.png",
+    "assets/ddr/right_arrow3.png",
+    "assets/ddr/right_arrow4.png",
+    "assets/ddr/right.png",
+    "assets/ddr/up_arrow1.png",
+    "assets/ddr/up_arrow2.png",
+    "assets/ddr/up_arrow3.png",
+    "assets/ddr/up_arrow4.png",
+    "assets/ddr/up.png",
+    "assets/ddr/victory.png",
+    "assets/space_balloon/flap_default.png",
+    "assets/space_balloon/flap_down.png",
+    "assets/space_balloon/flap_up.png",
+    "assets/space_balloon/space_balloon_background.png",
+    "assets/space_balloon/space_balloon_death.png",
+    "assets/space_balloon/space_balloon_star1.png",
+    "assets/space_balloon/space_balloon_star2.png",
+    "assets/space_balloon/space_balloon_star3.png",
+    "assets/space_balloon/space_balloon_star4.png",
+    "assets/space_balloon/space_balloon_star5.png",
 ]
+
+for (let i = 0; i < imgages.length; i++) {
+    const img = new Image();
+    img.src = imgages[i];
+
+    img.onload = function() {};
+}
