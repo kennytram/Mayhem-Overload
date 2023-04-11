@@ -20,7 +20,7 @@ In the current version of Mayhem Overload, users will be able to:
 ## Current Minigames 
 
 ### Thar He Blows
-<img src="https://raw.githubusercontent.com/kennytram/Mayhem-Overload/main/assets/README_images/Balloon-Blow.gif" width=500 height=400/>
+<img src="https://raw.githubusercontent.com/kennytram/Mayhem-Overload/main/assets/README_images/TharHeBlows.gif" width=500 height=400/>
 
 ### Groove On!
 <img src="https://raw.githubusercontent.com/kennytram/Mayhem-Overload/main/assets/README_images/DDR.gif" width=500 height=400/>
