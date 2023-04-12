@@ -17,7 +17,7 @@ In the current version of Mayhem Overload, users will be able to:
 - Play different microgames
 - Have Fun!
 
-## Current Minigames 
+## Current Microgames 
 
 ### Thar He Blows
 <img src="https://raw.githubusercontent.com/kennytram/Mayhem-Overload/main/assets/README_images/TharHeBlows.gif" width=500 height=400/>
